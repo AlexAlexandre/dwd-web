@@ -1,19 +1,19 @@
 (function () {
     'use strict';
 
-    angular.module('BlurAdmin.pages.camera', [])
+    angular.module('BlurAdmin.pages.financeiro', [])
         .config(routeConfig);
 
     /** @ngInject */
     function routeConfig($stateProvider) {
         $stateProvider
-            .state('camera', {
-                url: '/camera',
-                templateUrl: 'app/pages/camera/camera.html',
-                title: 'Câmeras',
+            .state('financeiro', {
+                url: '/financeiro',
+                templateUrl: 'app/pages/financeiro/financeiro.html',
+                title: 'Financeiro',
                 sidebarMeta: {
-                    icon: 'ion-camera',
-                    order: 4,
+                    icon: 'ion-cash',
+                    order: 5,
                 },
             });
     }

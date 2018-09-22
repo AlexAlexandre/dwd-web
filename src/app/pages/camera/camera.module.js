@@ -1,19 +1,19 @@
 (function () {
     'use strict';
 
-    angular.module('BlurAdmin.pages.tabelaPrecos', [])
+    angular.module('BlurAdmin.pages.camera', [])
         .config(routeConfig);
 
     /** @ngInject */
     function routeConfig($stateProvider) {
         $stateProvider
-            .state('tabelaPrecos', {
-                url: '/tabela-precos',
-                templateUrl: 'app/pages/tabelaPrecos/tabela-precos.html',
-                title: 'Tabela de Preços',
+            .state('camera', {
+                url: '/camera',
+                templateUrl: 'app/pages/camera/camera.html',
+                title: 'Câmeras',
                 sidebarMeta: {
-                    icon: 'ion-grid',
-                    order: 3,
+                    icon: 'ion-camera',
+                    order: 4,
                 },
             });
     }
