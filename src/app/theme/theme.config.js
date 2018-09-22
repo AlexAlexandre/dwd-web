@@ -13,13 +13,13 @@
     $provide.decorator('$uiViewScroll', uiViewScrollDecorator);
     //baConfigProvider.changeTheme({blur: true});
     //
-    //baConfigProvider.changeColors({
-    //  default: 'rgba(#000000, 0.2)',
-    //  defaultText: '#ffffff',
-    //  dashboard: {
-    //    white: '#ffffff',
-    //  },
-    //});
+    baConfigProvider.changeColors({
+     default: '#2e3646',
+     defaultText: '#9d691c',
+     dashboard: {
+       white: '#ffffff',
+     },
+    });
   }
 
   /** @ngInject */
