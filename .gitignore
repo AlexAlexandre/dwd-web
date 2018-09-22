@@ -1,0 +1,13 @@
+#Ignorando a pasta de versionamento
+.git
+
+*.iml
+.idea
+node_modules
+gulp.1
+build
+.tmp
+
+/src/release
+/release
+/bower_components
