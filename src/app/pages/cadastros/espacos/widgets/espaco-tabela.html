@@ -1,0 +1,47 @@
+<div class="horizontal-scroll">
+    <div class="form-group select-page-size-wrap ">
+        <label>Linhas por página
+            <select class="form-control selectpicker show-tick" title="Rows on page" selectpicker
+                    ng-model="smartTablePageSize" ng-options="i for i in [5,10,15,20,25]">
+            </select>
+        </label>
+    </div>
+    <table class="table" st-table="smartTableData">
+        <thead>
+        <tr class="sortable ">
+            <th class="table-id" st-sort="id" st-sort-default="true">#</th>
+            <th st-sort="firstName">Nome do condomínio</th>
+            <th st-sort="lastName">Nome do espaço</th>
+            <th st-sort="username">Torre</th>
+            <th st-sort="email">Status</th>
+            <th st-sort="age">Ações</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="item in smartTableData">
+            <td class="table-id">{{item.id}}</td>
+            <td>{{item.firstName}}</td>
+            <td>{{item.lastName}}</td>
+            <td>{{item.username}}</td>
+            <td><a class="email-link" ng-href="mailto:{{item.email}}">{{item.email}}</a></td>
+            <td>
+                <div class="buttons" ng-show="!rowform.$visible">
+                    <button class="btn btn-primary editable-table-button btn-xs" ng-click="rowform.$show()">
+                        Editar
+                    </button>
+                    <button class="btn btn-danger editable-table-button btn-xs" ng-click="removeUser($index)">
+                        Apagar
+                    </button>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+        <tfoot>
+        <tr>
+            <td colspan="6" class="text-center">
+                <div st-pagination="" st-items-by-page="smartTablePageSize" st-displayed-pages="5"></div>
+            </td>
+        </tr>
+        </tfoot>
+    </table>
+</div>
