@@ -1,0 +1,275 @@
+<div class="widgets">
+
+    <div class="row">
+        <div class="col-md-12">
+            <div ba-panel
+                 ba-panel-title="Utilize a interface abaixo para registrar as informações das locações utilizadas"
+                 ba-panel-class="with-scroll">
+                <ba-wizard>
+                    <ba-wizard-step title="Dados do Empreendimento" form="vm.personalInfoForm">
+                        <form name="vm.personalInfoForm" novalidate>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group has-feedback"
+                                         ng-class="{'has-error': vm.personalInfoForm.username.$invalid && (vm.personalInfoForm.username.$dirty || vm.personalInfoForm.$submitted)}">
+                                        <label for="razaoSocial">Razão Social</label>
+                                        <input type="text" class="form-control" id="razaoSocial" name="razaoSocial"
+                                               ng-model="vm.personalInfo.username" required>
+                                        <span class="help-block error-block basic-block">Required</span>
+                                    </div>
+                                    <div class="form-group has-feedback"
+                                         ng-class="{'has-error': vm.personalInfoForm.username.$invalid && (vm.personalInfoForm.username.$dirty || vm.personalInfoForm.$submitted)}">
+                                        <label for="nomeFantasia">Nome Fantasia</label>
+                                        <input type="text" class="form-control" id="nomeFantasia" name="nomeFantasia"
+                                               ng-model="vm.personalInfo.username" required>
+                                        <span class="help-block error-block basic-block">Required</span>
+                                    </div>
+                                    <div class="form-group has-feedback"
+                                         ng-class="{'has-error': vm.personalInfoForm.username.$invalid && (vm.personalInfoForm.username.$dirty || vm.personalInfoForm.$submitted)}">
+                                        <label for="cnpj">CNPJ</label>
+                                        <input type="text" class="form-control" id="cnpj" name="cnpj"
+                                               ng-model="vm.personalInfo.username" required>
+                                        <span class="help-block error-block basic-block">Required</span>
+                                    </div>
+                                    <div class="form-group has-feedback"
+                                         ng-class="{'has-error': vm.personalInfoForm.username.$invalid && (vm.personalInfoForm.username.$dirty || vm.personalInfoForm.$submitted)}">
+                                        <label for="inscricaoEstadual">Inscrição Estadual</label>
+                                        <input type="text" class="form-control" id="inscricaoEstadual"
+                                               name="inscricaoEstadual"
+                                               ng-model="vm.personalInfo.username" required>
+                                        <span class="help-block error-block basic-block">Required</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group has-feedback"
+                                         ng-class="{'has-error': vm.personalInfoForm.username.$invalid && (vm.personalInfoForm.username.$dirty || vm.personalInfoForm.$submitted)}">
+                                        <label for="inscricaoMunicipal">Inscrição Municipal</label>
+                                        <input type="text" class="form-control" id="inscricaoMunicipal"
+                                               name="inscricaoMunicipal"
+                                               ng-model="vm.personalInfo.username" required>
+                                        <span class="help-block error-block basic-block">Required</span>
+                                    </div>
+                                    <div class="form-group has-feedback"
+                                         ng-class="{'has-error': vm.personalInfoForm.username.$invalid && (vm.personalInfoForm.username.$dirty || vm.personalInfoForm.$submitted)}">
+                                        <label for="contato">Contato</label>
+                                        <input type="text" class="form-control" id="contato" name="contato"
+                                               ng-model="vm.personalInfo.username" required>
+                                        <span class="help-block error-block basic-block">Required</span>
+                                    </div>
+                                    <div class="form-group"
+                                         ng-class="{'has-error': vm.personalInfoForm.email.$invalid && (vm.personalInfoForm.email.$dirty || vm.personalInfoForm.$submitted)}">
+                                        <label for="email">Email</label>
+                                        <input type="email" class="form-control" id="email" name="email"
+                                               ng-model="vm.personalInfo.email" required>
+                                        <span class="help-block error-block basic-block">Proper email required</span>
+                                    </div>
+                                    <div class="form-group"
+                                         ng-class="{'has-error': vm.personalInfoForm.password.$invalid && (vm.personalInfoForm.password.$dirty || vm.personalInfoForm.$submitted)}">
+                                        <label for="telefone">Telefone</label>
+                                        <input type="tel" class="form-control" id="telefone" name="telefone"
+                                               ng-model="vm.personalInfo.password" required>
+                                        <span class="help-block error-block basic-block">Required</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </ba-wizard-step>
+                    <ba-wizard-step title="Dados do Espaço" form="vm.productInfoForm">
+                        <form name="vm.productInfoForm" novalidate>
+                            <div class="input-demo radio-demo row">
+                                <div class="form-group">
+                                    <div class="col-md-4">
+                                        <label class="radio-inline custom-radio nowrap">
+                                            <input type="radio" name="inlineRadioOptions" id="inlineRadio1"
+                                                   value="option1">
+                                            <span>Espaço Disponível</span>
+                                        </label>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="radio-inline custom-radio nowrap">
+                                            <input type="radio" name="inlineRadioOptions" id="inlineRadio2"
+                                                   value="option2">
+                                            <span>Espaço em Negociação</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group has-feedback"
+                                         ng-class="{'has-error': vm.productInfoForm.productName.$invalid && (vm.productInfoForm.productName.$dirty || vm.productInfoForm.$submitted)}">
+                                        <label for="numVagasEstacionamento">Número de Vagas do Estacionamento</label>
+                                        <input type="number" class="form-control" id="numVagasEstacionamento"
+                                               name="numVagasEstacionamento"
+                                               ng-model="vm.productInfo.productName" required>
+                                        <span class="help-block error-block basic-block">Required</span>
+                                    </div>
+                                    <div class="form-group"
+                                         ng-class="{'has-error': vm.productInfoForm.productId.$invalid && (vm.productInfoForm.productId.$dirty || vm.productInfoForm.$submitted)}">
+                                        <label for="regrasCondominio">Regras do Condomínio</label>
+                                        <input type="text" class="form-control" id="regrasCondominio"
+                                               name="regrasCondominio"
+                                               ng-model="vm.productInfo.productId" required>
+                                        <span class="help-block error-block basic-block">Required</span>
+                                    </div>
+                                    <div class="form-group"
+                                         ng-class="{'has-error': vm.productInfoForm.productId.$invalid && (vm.productInfoForm.productId.$dirty || vm.productInfoForm.$submitted)}">
+                                        <label for="hrFuncionamentoAreasComuns">Horário de Funcionamento das Áreas
+                                            comuns</label>
+                                        <input type="text" class="form-control" id="hrFuncionamentoAreasComuns"
+                                               name="hrFuncionamentoAreasComuns"
+                                               ng-model="vm.productInfo.productId" required>
+                                        <span class="help-block error-block basic-block">Required</span>
+                                    </div>
+                                    <div class="form-group"
+                                         ng-class="{'has-error': vm.productInfoForm.productId.$invalid && (vm.productInfoForm.productId.$dirty || vm.productInfoForm.$submitted)}">
+                                        <label for="nomeEspaco">Nome do Espaço</label>
+                                        <input type="text" class="form-control" id="nomeEspaco" name="nomeEspaco"
+                                               ng-model="vm.productInfo.productId" required>
+                                        <span class="help-block error-block basic-block">Required</span>
+                                    </div>
+                                    <div class="form-group"
+                                         ng-class="{'has-error': vm.productInfoForm.productId.$invalid && (vm.productInfoForm.productId.$dirty || vm.productInfoForm.$submitted)}">
+                                        <label for="endereco">Endereço</label>
+                                        <input type="text" class="form-control" id="endereco" name="endereco"
+                                               ng-model="vm.productInfo.productId" required>
+                                        <span class="help-block error-block basic-block">Required</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group"
+                                         ng-class="{'has-error': vm.productInfoForm.productId.$invalid && (vm.productInfoForm.productId.$dirty || vm.productInfoForm.$submitted)}">
+                                        <label for="condominio">Condomínio</label>
+                                        <input type="text" class="form-control" id="condominio" name="condominio"
+                                               ng-model="vm.productInfo.productId" required>
+                                        <span class="help-block error-block basic-block">Required</span>
+                                    </div>
+                                    <div class="form-group"
+                                         ng-class="{'has-error': vm.productInfoForm.productId.$invalid && (vm.productInfoForm.productId.$dirty || vm.productInfoForm.$submitted)}">
+                                        <label for="contatoCondominio">Contato Condomínio</label>
+                                        <input type="text" class="form-control" id="contatoCondominio"
+                                               name="contatoCondominio"
+                                               ng-model="vm.productInfo.productId" required>
+                                        <span class="help-block error-block basic-block">Required</span>
+                                    </div>
+                                    <div class="form-group"
+                                         ng-class="{'has-error': vm.productInfoForm.productId.$invalid && (vm.productInfoForm.productId.$dirty || vm.productInfoForm.$submitted)}">
+                                        <label for="administradora">Administradora</label>
+                                        <input type="text" class="form-control" id="administradora"
+                                               name="administradora"
+                                               ng-model="vm.productInfo.productId" required>
+                                        <span class="help-block error-block basic-block">Required</span>
+                                    </div>
+                                    <div class="form-group"
+                                         ng-class="{'has-error': vm.productInfoForm.productId.$invalid && (vm.productInfoForm.productId.$dirty || vm.productInfoForm.$submitted)}">
+                                        <label for="contatoAdministradora">Contato Administradora</label>
+                                        <input type="text" class="form-control" id="contatoAdministradora"
+                                               name="contatoAdministradora"
+                                               ng-model="vm.productInfo.productId" required>
+                                        <span class="help-block error-block basic-block">Required</span>
+                                    </div>
+                                    <div class="form-group"
+                                         ng-class="{'has-error': vm.productInfoForm.productId.$invalid && (vm.productInfoForm.productId.$dirty || vm.productInfoForm.$submitted)}">
+                                        <label for="numUnidade">Número da Unidade</label>
+                                        <input type="text" class="form-control" id="numUnidade" name="numUnidade"
+                                               ng-model="vm.productInfo.productId" required>
+                                        <span class="help-block error-block basic-block">Required</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </ba-wizard-step>
+                    <ba-wizard-step title="Dados do Responsável" form="vm.personalInfoForm">
+                        <form name="vm.personalInfoForm" novalidate>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group has-feedback"
+                                         ng-class="{'has-error': vm.personalInfoForm.username.$invalid && (vm.personalInfoForm.username.$dirty || vm.personalInfoForm.$submitted)}">
+                                        <label for="nomeCompleto">Nome Completo</label>
+                                        <input type="text" class="form-control" id="nomeCompleto" name="nomeCompleto"
+                                               ng-model="vm.personalInfo.username" required>
+                                        <span class="help-block error-block basic-block">Required</span>
+                                    </div>
+                                    <div class="form-group has-feedback"
+                                         ng-class="{'has-error': vm.personalInfoForm.username.$invalid && (vm.personalInfoForm.username.$dirty || vm.personalInfoForm.$submitted)}">
+                                        <label for="cpf">CPF</label>
+                                        <input type="text" class="form-control" id="cpf" name="cpf"
+                                               ng-model="vm.personalInfo.username" required>
+                                        <span class="help-block error-block basic-block">Required</span>
+                                    </div>
+                                    <div class="form-group"
+                                         ng-class="{'has-error': vm.personalInfoForm.email.$invalid && (vm.personalInfoForm.email.$dirty || vm.personalInfoForm.$submitted)}">
+                                        <label for="emailComercial">Email Comercial</label>
+                                        <input type="email" class="form-control" id="emailComercial" name="emailComercial"
+                                               ng-model="vm.personalInfo.email" required>
+                                        <span class="help-block error-block basic-block">Proper email required</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group"
+                                         ng-class="{'has-error': vm.personalInfoForm.password.$invalid && (vm.personalInfoForm.password.$dirty || vm.personalInfoForm.$submitted)}">
+                                        <label for="telefone">Telefone</label>
+                                        <input type="tel" class="form-control" id="telefone" name="telefone"
+                                               ng-model="vm.personalInfo.password" required>
+                                        <span class="help-block error-block basic-block">Required</span>
+                                    </div>
+                                    <div class="form-group has-feedback"
+                                         ng-class="{'has-error': vm.personalInfoForm.username.$invalid && (vm.personalInfoForm.username.$dirty || vm.personalInfoForm.$submitted)}">
+                                        <label for="cargo">Cargo</label>
+                                        <input type="text" class="form-control" id="cargo" name="inscricaoMunicipal"
+                                               ng-model="vm.personalInfo.username" required>
+                                        <span class="help-block error-block basic-block">Required</span>
+                                    </div>
+                                    <div class="form-group has-feedback"
+                                         ng-class="{'has-error': vm.personalInfoForm.username.$invalid && (vm.personalInfoForm.username.$dirty || vm.personalInfoForm.$submitted)}">
+                                        <label for="descricaoAtividades">Descrição das Atividades</label>
+                                        <input type="text" class="form-control" id="descricaoAtividades" name="descricaoAtividades"
+                                               ng-model="vm.personalInfo.username" required>
+                                        <span class="help-block error-block basic-block">Required</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </ba-wizard-step>
+                    <ba-wizard-step title="Tabela de Preços" form="vm.addressForm">
+                        <form name="vm.addressForm" novalidate>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group has-feedback"
+                                         ng-class="{'has-error': vm.addressForm.address.$invalid && (vm.addressForm.address.$dirty || vm.addressForm.$submitted)}">
+                                        <label for="productName">Shipment address</label>
+                                        <input type="text" class="form-control" id="address" name="address"
+                                               placeholder="Shipment address" ng-model="vm.shipment.address" required>
+                                        <span class="help-block error-block basic-block">Required</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="productName">Shipment method</label>
+                                        <select class="form-control" title="Category" selectpicker>
+                                            <option selected>Fast & expensive</option>
+                                            <option>Cheap & free</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="checkbox">
+                                <label class="custom-checkbox">
+                                    <input type="checkbox">
+                                    <span>Save shipment info</span>
+                                </label>
+                            </div>
+                        </form>
+                    </ba-wizard-step>
+                    <ba-wizard-step title="Imagens">
+                        <form class="form-horizontal" name="vm.finishForm" novalidate>
+                            Congratulations! You have successfully filled the form!
+                        </form>
+                    </ba-wizard-step>
+                </ba-wizard>
+            </div>
+        </div>
+    </div>
+
+</div>

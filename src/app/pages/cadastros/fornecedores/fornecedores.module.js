@@ -3,23 +3,29 @@
  * created on 16.12.2015
  */
 (function () {
-  'use strict';
+    'use strict';
 
-  angular.module('BlurAdmin.pages.cadastros.fornecedores', [])
-      .config(routeConfig);
+    angular.module('BlurAdmin.pages.cadastros.fornecedores', [])
+        .config(routeConfig);
 
-  /** @ngInject */
-  function routeConfig($stateProvider) {
-    $stateProvider
-        .state('cadastros.fornecedores', {
-          url: '/fornecedores',
-          templateUrl: 'app/pages/cadastros/fornecedores/fornecedores.html',
-          controller: 'FornecedoresCtrl',
-          title: 'Fornecedores',
-          sidebarMeta: {
-            order: 2,
-          },
-        });
-  }
+    /** @ngInject */
+    function routeConfig($stateProvider) {
+        $stateProvider
+            .state('cadastros.fornecedores', {
+                url: '/fornecedores',
+                templateUrl: 'app/pages/cadastros/fornecedores/fornecedores.html',
+                controller: 'FornecedoresCtrl',
+                title: 'Fornecedores',
+                sidebarMeta: {
+                    order: 2,
+                },
+            })
+            .state('cadastros.fornecedores-incluir', {
+                url: '/incluir-fornecedores',
+                templateUrl: 'app/pages/cadastros/fornecedores/incluir-fornecedores.html',
+                // controller: 'IncluirFornecedoresCtrl',
+                title: 'Incluir Fornecedores'
+            });
+    }
 
 })();
