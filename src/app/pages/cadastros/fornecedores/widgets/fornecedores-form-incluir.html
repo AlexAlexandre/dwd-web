@@ -1,50 +1,127 @@
 <div class="row">
+    <h4 class="">Informações Básicas</h4>
+</div>
+
+<div class="row">
     <div class="col-sm-6">
         <div class="form-group">
-            <label for="inputFirstName">Nome Completo</label>
-            <input type="text" class="form-control" id="inputFirstName">
+            <label for="tx_nome_fornecedor">Nome Completo</label>
+            <input type="text" class="form-control" id="tx_nome_fornecedor" ng-model="fornecedor.tx_nome_fornecedor">
         </div>
     </div>
     <div class="col-sm-6">
         <div class="form-group">
-            <label for="inputLastName">CPF</label>
-            <input type="text" class="form-control" id="inputLastName">
+            <label for="nr_cpf">CPF</label>
+            <input type="text" class="form-control" id="nr_cpf" ng-model="fornecedor.nr_cpf">
         </div>
     </div>
 </div>
 <div class="row">
     <div class="col-sm-6">
         <div class="form-group">
-            <label for="inputFirstName">Email Comercial</label>
-            <input type="email" class="form-control" id="inputEmail">
+            <label for="tx_email_comercial">Email Comercial</label>
+            <input type="email" class="form-control" id="tx_email_comercial" ng-model="fornecedor.tx_email_comercial">
         </div>
     </div>
     <div class="col-sm-6">
         <div class="form-group">
-            <label for="inputWebsite">Telefone Direto</label>
-            <input type="tel" class="form-control" id="inputWebsite">
-        </div>
-    </div>
-</div>
-<div class="row">
-    <div class="col-sm-6">
-        <div class="form-group">
-            <label for="celular">Celular</label>
-            <input type="tel" class="form-control" id="celular">
-        </div>
-    </div>
-    <div class="col-sm-6">
-        <div class="form-group">
-            <label for="cargo">Cargo</label>
-            <input type="text" class="form-control" id="cargo">
+            <label for="nr_telefone_direto">Telefone Direto</label>
+            <input type="tel" class="form-control" id="nr_telefone_direto" ng-model="fornecedor.nr_telefone_direto">
         </div>
     </div>
 </div>
 <div class="row">
     <div class="col-sm-6">
         <div class="form-group">
-            <label for="descricaoAtividades">Descrição das Atividades</label>
-            <textarea class="form-control" id="descricaoAtividades" name="descricaoAtividades"></textarea>
+            <label for="nr_telefone_celular">Celular</label>
+            <input type="tel" class="form-control" id="nr_telefone_celular" ng-model="fornecedor.nr_telefone_celular">
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="form-group">
+            <label for="tx_cargo">Cargo</label>
+            <input type="text" class="form-control" id="tx_cargo" ng-model="fornecedor.tx_cargo">
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-6">
+        <div class="form-group">
+            <label for="tx_descricao_atividades">Descrição das Atividades</label>
+            <textarea class="form-control" id="tx_descricao_atividades" ng-model="fornecedor.tx_descricao_atividades"></textarea>
+        </div>
+    </div>
+</div>
+
+<hr>
+
+<div class="row">
+    <h4 class="">Endereço</h4>
+</div>
+
+<div class="row">
+    <div class="col-sm-6">
+        <div class="form-group">
+            <label for="inputUf">Selecione o Estado</label>
+            <select class="form-control" title="Selecione o Estado" id="inputUf" name="inputUf" ng-model="enderecoCompleto.sg_uf"
+                    ng-change="retornaCidadedes(enderecoCompleto.sg_uf)">
+                <option ng-repeat="estado in uf" value="{{estado.sg_uf}}">{{estado.tx_nome_uf}}</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="col-sm-6">
+        <div class="form-group">
+            <label for="inputCidade">Selecione a Cidade</label>
+            <select class="form-control" title="Selecione a Cidade" id="inputCidade" name="inputCidade"
+                    ng-model="enderecoCompleto.id_cidade">
+                <option ng-repeat="cidade in cidades" value="{{cidade.id_cidade}}">{{cidade.tx_nome_cidade}}</option>
+            </select>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-6">
+        <div class="form-group">
+            <label for="tx_cep">CEP</label>
+            <input type="tel" class="form-control" id="tx_cep" ng-model="enderecoCompleto.tx_cep" ng-blur="buscarEndereco(enderecoCompleto.tx_cep)">
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="form-group">
+            <label for="nr_numero">Numero</label>
+            <input type="tel" class="form-control" id="nr_numero" ng-model="enderecoCompleto.nr_numero">
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-6">
+        <div class="form-group">
+            <label for="logradouro">Logradouro</label>
+            <input type="text" class="form-control" id="logradouro" ng-model="enderecoCompleto.tx_logradouro">
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="form-group">
+            <label for="tx_tipologradouro">Tipo de Logradouro</label>
+            <input type="tel" class="form-control" id="tx_tipologradouro">
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-6">
+        <div class="form-group">
+            <label for="bairro">Bairro</label>
+            <input type="text" class="form-control" id="bairro" ng-model="enderecoCompleto.tx_bairro">
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="form-group">
+            <label for="complemento">Complemento</label>
+            <input type="text" class="form-control" id="complemento" ng-model="enderecoCompleto.tx_complemento">
         </div>
     </div>
 </div>
@@ -56,7 +133,7 @@
         </button>
     </li>
     <li class="next">
-        <button type="button" class="btn btn-primary">
+        <button type="button" class="btn btn-primary" ng-click="salvarFornecedor(fornecedor, enderecoCompleto)">
             Salvar
         </button>
     </li>

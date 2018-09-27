@@ -23,7 +23,7 @@
             .state('cadastros.fornecedores-incluir', {
                 url: '/incluir-fornecedores',
                 templateUrl: 'app/pages/cadastros/fornecedores/incluir-fornecedores.html',
-                // controller: 'IncluirFornecedoresCtrl',
+                controller: 'IncluirFornecedoresCtrl',
                 title: 'Incluir Fornecedores'
             });
     }
