@@ -40,22 +40,13 @@
         };
 
         $scope.salvarFornecedor = function (fornecedor, enderecoCompleto) {
-            console.log(fornecedor);
-            console.log(enderecoCompleto);
-
-            swal({
-                title: 'Error!',
-                text: 'Do you want to continue',
-                type: 'error',
-                confirmButtonText: 'Cool'
+            $http.post('http://localhost:8000/api/fornecedor', {
+                fornecedor: fornecedor,
+                enderecoCompleto: enderecoCompleto
+            }).then(function (response) {
+                window.history.go(-1);
+                return false;
             });
-
-            // $http.post('http://localhost:8000/api/fornecedor', {
-            //     fornecedor: fornecedor,
-            //     enderecoCompleto: enderecoCompleto
-            // }).then(function (response) {
-            //     console.log(response);
-            // });
         }
     }
 

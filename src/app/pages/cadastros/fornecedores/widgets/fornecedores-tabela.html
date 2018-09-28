@@ -16,23 +16,23 @@
         <tr class="sortable ">
             <th class="table-id" st-sort="id" st-sort-default="true">#</th>
             <th st-sort="firstName">Nome do fornecedor</th>
-            <th st-sort="lastName">Cidade</th>
+            <!--<th st-sort="lastName">Cidade</th>-->
             <th st-sort="username">Contato</th>
             <th st-sort="age">Ações</th>
         </tr>
         </thead>
         <tbody>
-        <tr ng-repeat="item in smartTableData">
-            <td class="table-id">{{item.id}}</td>
-            <td>{{item.firstName}}</td>
-            <td>{{item.lastName}}</td>
-            <td><a class="email-link" ng-href="mailto:{{item.email}}">{{item.email}}</a></td>
+        <tr ng-repeat="item in fornecedorTable">
+            <td class="table-id">{{item.id_fornecedor}}</td>
+            <td>{{item.tx_nome_fornecedor}}</td>
+            <!--<td>{{item.tx_email_comercial}}</td>-->
+            <td><a class="email-link" ng-href="mailto:{{item.tx_email_comercial}}">{{item.tx_email_comercial}}</a></td>
             <td>
                 <div class="buttons" ng-show="!rowform.$visible">
                     <button class="btn btn-primary editable-table-button btn-xs" ng-click="rowform.$show()">
                         Editar
                     </button>
-                    <button class="btn btn-danger editable-table-button btn-xs" ng-click="removeUser($index)">
+                    <button class="btn btn-danger editable-table-button btn-xs" ng-click="deletarFornecedor(item.id_fornecedor)">
                         Apagar
                     </button>
                 </div>
