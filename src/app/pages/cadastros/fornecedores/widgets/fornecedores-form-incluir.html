@@ -62,20 +62,16 @@
 <div class="row">
     <div class="col-sm-6">
         <div class="form-group">
+            <label for="tx_cep">CEP</label>
+            <input type="tel" class="form-control" id="tx_cep" ng-model="enderecoCompleto.tx_cep" ng-blur="buscarEndereco(enderecoCompleto.tx_cep)">
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="form-group">
             <label for="inputUf">Selecione o Estado</label>
             <select class="form-control" title="Selecione o Estado" id="inputUf" name="inputUf" ng-model="enderecoCompleto.sg_uf"
                     ng-change="retornaCidadedes(enderecoCompleto.sg_uf)">
                 <option ng-repeat="estado in uf" value="{{estado.sg_uf}}">{{estado.tx_nome_uf}}</option>
-            </select>
-        </div>
-    </div>
-
-    <div class="col-sm-6">
-        <div class="form-group">
-            <label for="inputCidade">Selecione a Cidade</label>
-            <select class="form-control" title="Selecione a Cidade" id="inputCidade" name="inputCidade"
-                    ng-model="enderecoCompleto.id_cidade">
-                <option ng-repeat="cidade in cidades" value="{{cidade.id_cidade}}">{{cidade.tx_nome_cidade}}</option>
             </select>
         </div>
     </div>
@@ -84,8 +80,8 @@
 <div class="row">
     <div class="col-sm-6">
         <div class="form-group">
-            <label for="tx_cep">CEP</label>
-            <input type="tel" class="form-control" id="tx_cep" ng-model="enderecoCompleto.tx_cep" ng-blur="buscarEndereco(enderecoCompleto.tx_cep)">
+            <label for="tx_localidade">Selecione a Cidade</label>
+            <input type="tel" class="form-control" id="tx_localidade" ng-model="enderecoCompleto.tx_localidade">
         </div>
     </div>
     <div class="col-sm-6">
@@ -105,8 +101,8 @@
     </div>
     <div class="col-sm-6">
         <div class="form-group">
-            <label for="tx_tipologradouro">Tipo de Logradouro</label>
-            <input type="tel" class="form-control" id="tx_tipologradouro">
+            <label for="complemento">Complemento</label>
+            <input type="text" class="form-control" id="complemento" ng-model="enderecoCompleto.tx_complemento">
         </div>
     </div>
 </div>
@@ -116,12 +112,6 @@
         <div class="form-group">
             <label for="bairro">Bairro</label>
             <input type="text" class="form-control" id="bairro" ng-model="enderecoCompleto.tx_bairro">
-        </div>
-    </div>
-    <div class="col-sm-6">
-        <div class="form-group">
-            <label for="complemento">Complemento</label>
-            <input type="text" class="form-control" id="complemento" ng-model="enderecoCompleto.tx_complemento">
         </div>
     </div>
 </div>

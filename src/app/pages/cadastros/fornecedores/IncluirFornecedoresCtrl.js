@@ -14,6 +14,8 @@
 
 
         $scope.enderecoCompleto = {
+            sg_uf: null,
+            tx_localidade: null,
             tx_bairro: null,
             tx_logradouro: null,
             tx_complemento: null
@@ -24,15 +26,11 @@
             $scope.uf = response.data;
         });
 
-        $scope.retornaCidadedes = function (cidades) {
-            $http.get('http://localhost:8000/api/cidade/uf/' + cidades).then(function (response) {
-                $scope.cidades = response.data;
-                // $scope.enderecoCompleto.cidades = response.data;
-            });
-        };
-
         $scope.buscarEndereco = function (cep) {
             $http.get('https://viacep.com.br/ws/' + cep + '/json/').then(function (response) {
+                console.log(response);
+                $scope.enderecoCompleto.sg_uf = response.data.uf;
+                $scope.enderecoCompleto.tx_localidade = response.data.localidade;
                 $scope.enderecoCompleto.tx_bairro = response.data.bairro;
                 $scope.enderecoCompleto.tx_logradouro = response.data.logradouro;
                 $scope.enderecoCompleto.tx_complemento = response.data.complemento;
