@@ -8,6 +8,7 @@
     angular.module('BlurAdmin.pages.cadastros', [
         'BlurAdmin.pages.cadastros.espacos',
         'BlurAdmin.pages.cadastros.fornecedores',
+        'BlurAdmin.pages.cadastros.clientes',
     ])
         .config(routeConfig);
 
