@@ -1,6 +1,6 @@
 /**
- * @author k.danovsky
- * created on 12.01.2016
+ * @author Alex Alexandre
+ * criado em 02/10/2018
  */
 (function () {
     'use strict';

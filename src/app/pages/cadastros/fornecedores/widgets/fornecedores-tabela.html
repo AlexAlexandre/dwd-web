@@ -23,16 +23,16 @@
         </thead>
         <tbody>
         <tr ng-repeat="item in fornecedorTable">
-            <td class="table-id">{{item.id_fornecedor}}</td>
+            <td class="table-id">{{item.id_fornecedores}}</td>
             <td>{{item.tx_nome_fornecedor}}</td>
             <!--<td>{{item.tx_email_comercial}}</td>-->
             <td><a class="email-link" ng-href="mailto:{{item.tx_email_comercial}}">{{item.tx_email_comercial}}</a></td>
             <td>
                 <div class="buttons" ng-show="!rowform.$visible">
-                    <button class="btn btn-primary editable-table-button btn-xs" ng-click="rowform.$show()">
+                    <button class="btn btn-primary editable-table-button btn-xs" ng-click="editarFornecedor(item.id_fornecedores)">
                         Editar
                     </button>
-                    <button class="btn btn-danger editable-table-button btn-xs" ng-click="deletarFornecedor(item.id_fornecedor)">
+                    <button class="btn btn-danger editable-table-button btn-xs" ng-click="deletarFornecedor(item.id_fornecedores)">
                         Apagar
                     </button>
                 </div>

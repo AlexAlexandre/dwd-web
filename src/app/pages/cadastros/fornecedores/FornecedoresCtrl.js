@@ -39,6 +39,11 @@
         };
 
 
+        $scope.editarFornecedor = function(id) {
+            console.log(id);
+            window.location = '/#/cadastros/editar-fornecedores/' + id;
+        };
+
         $scope.deletarFornecedor = function(id) {
             $http.delete('http://localhost:8000/api/fornecedor', {id: id}).then(function (response) {
                 console.log(response);

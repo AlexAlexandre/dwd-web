@@ -5,7 +5,7 @@
 (function () {
     'use strict';
 
-    angular.module('BlurAdmin.pages.cadastros.fornecedores', [])
+    angular.module('BlurAdmin.pages.cadastros.fornecedores', ['ngRoute'])
         .config(routeConfig);
 
     /** @ngInject */
@@ -25,6 +25,12 @@
                 templateUrl: 'app/pages/cadastros/fornecedores/incluir-fornecedores.html',
                 controller: 'IncluirFornecedoresCtrl',
                 title: 'Incluir Fornecedores'
+            })
+            .state('cadastros.fornecedores-editar', {
+                url: '/editar-fornecedores/:id',
+                templateUrl: 'app/pages/cadastros/fornecedores/incluir-fornecedores.html',
+                controller: 'EditarFornecedoresCtrl',
+                title: 'Editar Fornecedores'
             });
     }
 
