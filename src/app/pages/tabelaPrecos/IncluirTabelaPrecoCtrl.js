@@ -25,7 +25,7 @@
                     console.log(response);
                     if (response.success = true) {
                         swal("Parabéns!", "Tabela de preços criado com sucesso!", "success")
-                            .then(() => {
+                            .then(function() {
                                 window.history.go(-1);
                             });
                     }

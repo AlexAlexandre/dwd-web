@@ -37,7 +37,7 @@
                             console.log(response);
                             if(response.data = 1) {
                                 swal("Parabéns!", "Fornecedor deletado com sucesso!", "success")
-                                    .then(() => {
+                                    .then(function () {
                                         location.reload();
                                     });
 

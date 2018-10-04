@@ -45,7 +45,7 @@
             }).then(function (response) {
                 if (response.success = true) {
                     swal("Parabéns!", "Fornecedor criado com sucesso!", "success")
-                        .then(() => {
+                        .then(function () {
                             window.history.go(-1);
                         });
                 }

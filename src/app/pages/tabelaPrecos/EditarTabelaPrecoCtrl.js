@@ -43,7 +43,7 @@
             }).then(function (response) {
                 if (response.success = true) {
                     swal("Parabéns!", "Fornecedor editado com sucesso!", "success")
-                        .then(() => {
+                        .then(function (){
                             window.history.go(-1);
                         });
                 }
