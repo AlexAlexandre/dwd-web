@@ -26,7 +26,7 @@
                 buttons: true,
                 dangerMode: true,
             })
-                .then((willDelete) => {
+                .then(function (willDelete) {
                     if (willDelete) {
                         $http.delete('http://localhost:8000/api/tabela-preco/' + id).then(function (response) {
                             console.log(response);
