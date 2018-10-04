@@ -28,7 +28,7 @@
             })
             .state('cadastros.fornecedores-editar', {
                 url: '/editar-fornecedores/:id',
-                templateUrl: 'app/pages/cadastros/fornecedores/incluir-fornecedores.html',
+                templateUrl: 'app/pages/cadastros/fornecedores/editar-fornecedores.html',
                 controller: 'EditarFornecedoresCtrl',
                 title: 'Editar Fornecedores'
             });

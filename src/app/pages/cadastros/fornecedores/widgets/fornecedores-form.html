@@ -7,13 +7,15 @@
     <div class="col-sm-6">
         <div class="form-group">
             <label for="tx_nome_fornecedor">Nome Completo</label>
+            <span style="color: red;">*</span>
             <input type="text" class="form-control" id="tx_nome_fornecedor" ng-model="fornecedor.tx_nome_fornecedor">
         </div>
     </div>
     <div class="col-sm-6">
         <div class="form-group">
             <label for="nr_cpf">CPF</label>
-            <input type="text" class="form-control" id="nr_cpf" ng-model="fornecedor.nr_cpf">
+            <span style="color: red;">*</span>
+            <input type="text" class="form-control" id="nr_cpf" ng-model="fornecedor.nr_cpf" maxlength="11">
         </div>
     </div>
 </div>
@@ -21,12 +23,14 @@
     <div class="col-sm-6">
         <div class="form-group">
             <label for="tx_email_comercial">Email Comercial</label>
+            <span style="color: red;">*</span>
             <input type="email" class="form-control" id="tx_email_comercial" ng-model="fornecedor.tx_email_comercial">
         </div>
     </div>
     <div class="col-sm-6">
         <div class="form-group">
             <label for="nr_telefone_direto">Telefone Direto</label>
+            <span style="color: red;">*</span>
             <input type="tel" class="form-control" id="nr_telefone_direto" ng-model="fornecedor.nr_telefone_direto">
         </div>
     </div>
@@ -35,12 +39,14 @@
     <div class="col-sm-6">
         <div class="form-group">
             <label for="nr_telefone_celular">Celular</label>
+            <span style="color: red;">*</span>
             <input type="tel" class="form-control" id="nr_telefone_celular" ng-model="fornecedor.nr_telefone_celular">
         </div>
     </div>
     <div class="col-sm-6">
         <div class="form-group">
             <label for="tx_cargo">Cargo</label>
+            <span style="color: red;">*</span>
             <input type="text" class="form-control" id="tx_cargo" ng-model="fornecedor.tx_cargo">
         </div>
     </div>
@@ -49,6 +55,7 @@
     <div class="col-sm-6">
         <div class="form-group">
             <label for="tx_descricao_atividades">Descrição das Atividades</label>
+            <span style="color: red;">*</span>
             <textarea class="form-control" id="tx_descricao_atividades" ng-model="fornecedor.tx_descricao_atividades"></textarea>
         </div>
     </div>
@@ -64,12 +71,14 @@
     <div class="col-sm-6">
         <div class="form-group">
             <label for="tx_cep">CEP</label>
+            <span style="color: red;">*</span>
             <input type="tel" class="form-control" id="tx_cep" ng-model="enderecoCompleto.tx_cep" ng-blur="buscarEndereco(enderecoCompleto.tx_cep)">
         </div>
     </div>
     <div class="col-sm-6">
         <div class="form-group">
             <label for="inputUf">Selecione o Estado</label>
+            <span style="color: red;">*</span>
             <select class="form-control" title="Selecione o Estado" id="inputUf" name="inputUf" ng-model="enderecoCompleto.sg_uf"
                     ng-change="retornaCidadedes(enderecoCompleto.sg_uf)">
                 <option ng-repeat="estado in uf" value="{{estado.sg_uf}}">{{estado.tx_nome_uf}}</option>
@@ -81,13 +90,15 @@
 <div class="row">
     <div class="col-sm-6">
         <div class="form-group">
-            <label for="tx_localidade">Selecione a Cidade</label>
+            <label for="tx_localidade">Cidade</label>
+            <span style="color: red;">*</span>
             <input type="tel" class="form-control" id="tx_localidade" ng-model="enderecoCompleto.tx_localidade">
         </div>
     </div>
     <div class="col-sm-6">
         <div class="form-group">
             <label for="nr_numero">Numero</label>
+            <span style="color: red;">*</span>
             <input type="tel" class="form-control" id="nr_numero" ng-model="enderecoCompleto.nr_numero">
         </div>
     </div>
@@ -97,6 +108,7 @@
     <div class="col-sm-6">
         <div class="form-group">
             <label for="logradouro">Logradouro</label>
+            <span style="color: red;">*</span>
             <input type="text" class="form-control" id="logradouro" ng-model="enderecoCompleto.tx_logradouro">
         </div>
     </div>
@@ -112,20 +124,8 @@
     <div class="col-sm-6">
         <div class="form-group">
             <label for="bairro">Bairro</label>
+            <span style="color: red;">*</span>
             <input type="text" class="form-control" id="bairro" ng-model="enderecoCompleto.tx_bairro">
         </div>
     </div>
 </div>
-<!--<button type="submit" class="btn btn-primary">Submit</button>-->
-<ul class="pager ba-wizard-pager">
-    <li class="previous">
-        <button type="button" class=" btn btn-danger" onclick="window.history.go(-1); return false;">
-            Cancelar
-        </button>
-    </li>
-    <li class="next">
-        <button type="button" class="btn btn-primary" ng-click="salvarFornecedor(fornecedor, enderecoCompleto)">
-            Salvar
-        </button>
-    </li>
-</ul>

@@ -38,12 +38,17 @@
         };
 
         $scope.salvarFornecedor = function (fornecedor, enderecoCompleto) {
+
             $http.post('http://localhost:8000/api/fornecedor', {
                 fornecedor: fornecedor,
                 enderecoCompleto: enderecoCompleto
             }).then(function (response) {
-                window.history.go(-1);
-                return false;
+                if (response.success = true) {
+                    swal("Parabéns!", "Fornecedor criado com sucesso!", "success")
+                        .then(() => {
+                            window.history.go(-1);
+                        });
+                }
             });
         }
     }

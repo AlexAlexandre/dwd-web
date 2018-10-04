@@ -12,8 +12,8 @@
     function EditarFornecedoresCtrl($scope, $http, $stateParams) {
 
         $http.get('http://localhost:8000/api/fornecedor/' + $stateParams.id).then(function (response) {
-            console.log(response.data);
             $scope.fornecedor = {
+                id_fornecedores: response.data.id_fornecedores,
                 tx_nome_fornecedor: response.data.tx_nome_fornecedor,
                 nr_cpf: response.data.nr_cpf,
                 tx_email_comercial: response.data.tx_email_comercial,
@@ -24,6 +24,7 @@
             };
 
             $scope.enderecoCompleto = {
+                id_endereco: response.data.endereco.id_endereco,
                 tx_cep: response.data.endereco.tx_cep,
                 sg_uf: response.data.endereco.sg_uf,
                 tx_localidade: response.data.endereco.tx_localidade,
@@ -43,7 +44,6 @@
         //TODO -> essa função ta duplicada, refatora-la futuramente.
         $scope.buscarEndereco = function (cep) {
             $http.get('https://viacep.com.br/ws/' + cep + '/json/').then(function (response) {
-                console.log(response);
                 $scope.enderecoCompleto.sg_uf = response.data.uf;
                 $scope.enderecoCompleto.tx_localidade = response.data.localidade;
                 $scope.enderecoCompleto.tx_bairro = response.data.bairro;
@@ -52,15 +52,19 @@
             });
         };
 
-        $scope.salvarFornecedor = function (fornecedor, enderecoCompleto) {
+        $scope.editarFornecedor = function (fornecedor, enderecoCompleto) {
             console.log(fornecedor);
             console.log(enderecoCompleto);
-            $http.put('http://localhost:8000/api/fornecedor', {
+            $http.put('http://localhost:8000/api/fornecedor/' + fornecedor.id_fornecedores, {
                 fornecedor: fornecedor,
                 enderecoCompleto: enderecoCompleto
             }).then(function (response) {
-                window.history.go(-1);
-                return false;
+                if (response.success = true) {
+                    swal("Parabéns!", "Fornecedor editado com sucesso!", "success")
+                        .then(() => {
+                            window.history.go(-1);
+                        });
+                }
             });
         }
     }

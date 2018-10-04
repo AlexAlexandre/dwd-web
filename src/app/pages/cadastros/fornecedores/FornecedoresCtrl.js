@@ -19,46 +19,34 @@
             $scope.fornecedorTable = response.data;
         });
 
-        // $scope.editableTableData = $scope.smartTableData.slice(0, 36);
-
-
-
-        $scope.showGroup = function(user) {
-            if(user.group && $scope.groups.length) {
-                var selected = $filter('filter')($scope.groups, {id: user.group});
-                return selected.length ? selected[0].text : 'Not set';
-            } else return 'Not set'
-        };
-
-        $scope.showStatus = function(user) {
-            var selected = [];
-            if(user.status) {
-                selected = $filter('filter')($scope.statuses, {value: user.status});
-            }
-            return selected.length ? selected[0].text : 'Not set';
-        };
-
-
-        $scope.editarFornecedor = function(id) {
-            console.log(id);
+        $scope.editarFornecedor = function (id) {
             window.location = '/#/cadastros/editar-fornecedores/' + id;
         };
 
-        $scope.deletarFornecedor = function(id) {
-            $http.delete('http://localhost:8000/api/fornecedor', {id: id}).then(function (response) {
-                console.log(response);
+        $scope.deletarFornecedor = function (id) {
+            swal({
+                title: "Você tem certeza?",
+                text: "Uma vez deletado, não é possível recuperar esta informação!",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        $http.delete('http://localhost:8000/api/fornecedor/' + id).then(function (response) {
+                            console.log(response);
+                            if(response.data = 1) {
+                                swal("Parabéns!", "Fornecedor deletado com sucesso!", "success")
+                                    .then(() => {
+                                        location.reload();
+                                    });
 
-            });
-        };
-
-        $scope.addUser = function() {
-            $scope.inserted = {
-                id: $scope.users.length+1,
-                name: '',
-                status: null,
-                group: null
-            };
-            $scope.users.push($scope.inserted);
+                            }
+                        });
+                    } else {
+                        // console.log('não faz nada');
+                    }
+                });
         };
 
         editableOptions.theme = 'bs3';
