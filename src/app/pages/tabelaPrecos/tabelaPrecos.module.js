@@ -20,8 +20,14 @@
             .state('tabelaPrecos-incluir', {
                 url: '/incluir-tabela-precos',
                 templateUrl: 'app/pages/tabelaPrecos/incluir-tabela-precos.html',
-                // controller: 'IncluirFornecedoresCtrl',
+                controller: 'IncluirTabelaPrecoCtrl',
                 title: 'Incluir Tabela de Preços'
+            })
+            .state('tabelaPrecos-editar', {
+                url: '/editar-tabela-precos/:id',
+                templateUrl: 'app/pages/tabelaPrecos/editar-tabela-precos.html',
+                controller: 'EditarTabelaPrecoCtrl',
+                title: 'Editar Tabela de Preços'
             });
     }
 

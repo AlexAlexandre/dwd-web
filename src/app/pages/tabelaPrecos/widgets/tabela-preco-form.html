@@ -1,0 +1,54 @@
+<div class="row">
+    <div class="col-sm-6">
+        <div class="form-group">
+            <label for="fornecedores">Fornecedores</label>
+            <select class="form-control" title="Selecione o Estado" id="fornecedores" name="fornecedores"
+                    ng-model="tabelaPreco.id_fornecedores">
+                <option ng-repeat="itemF in fornecedores" value="{{itemF.id_fornecedores}}">
+                    {{itemF.tx_nome_fornecedor}}
+                </option>
+            </select>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="form-group">
+            <label for="tipoServico">Tipo de Serviço</label>
+            <select class="form-control" title="Selecione o Estado" id="tipoServico" name="tipoServico"
+                    ng-model="tabelaPreco.id_tipo_servico">
+                <option ng-repeat="itemTS in tipoServico" value="{{itemTS.id_tipo_servico}}">
+                    {{itemTS.tx_tipo_servico}}
+                </option>
+            </select>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-6">
+        <div class="form-group">
+            <label for="valor">Valor (R$)</label>
+            <input type="text" class="form-control" id="valor" ng-model="tabelaPreco.nr_valor">
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="form-group">
+            <label for="desconto">Percentual de Desconto (%)</label>
+            <input type="tel" class="form-control" id="desconto" ng-model="tabelaPreco.nr_percentagem_desconto">
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-6">
+        <div class="form-group">
+            <label for="descricaoAtividades">Descrição dos Serviços</label>
+            <textarea class="form-control" id="descricaoAtividades" name="descricaoAtividades"
+                      ng-model="tabelaPreco.tx_descricao_servico">
+            </textarea>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="form-group">
+            <label for="cargo">Nome da Tabela de Preços</label>
+            <input type="text" class="form-control" id="cargo" ng-model="tabelaPreco.tx_nome_tabela_preco">
+        </div>
+    </div>
+</div>

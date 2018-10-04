@@ -9,69 +9,40 @@
         .controller('TabelaPrecoCtrl', TabelaPrecoCtrl);
 
     /** @ngInject */
-    function TabelaPrecoCtrl($scope, $filter, editableOptions, editableThemes) {
+    function TabelaPrecoCtrl($scope, $filter, editableOptions, editableThemes, $http) {
+        $http.get('http://localhost:8000/api/tabela-preco').then(function (response) {
+            $scope.fornecedores = response.data;
+        });
 
-        $scope.teste = 'TESEEEEEEEEEEEEEEEETE';
-
-        $scope.users = [
-            {
-                "id": 1,
-                "name": "Esther Vang",
-                "status": 4,
-                "group": 3,
-                "valor": 12,
-                "desconto": '10%'
-            }
-        ];
-
-        $scope.statuses = [
-            {value: 1, text: 'Good'},
-            {value: 2, text: 'Awesome'},
-            {value: 3, text: 'Excellent'},
-        ];
-
-        $scope.groups = [
-            {id: 1, text: 'user'},
-            {id: 2, text: 'customer'},
-            {id: 3, text: 'vip'},
-            {id: 4, text: 'admin'}
-        ];
-
-        $scope.showGroup = function (user) {
-            if (user.group && $scope.groups.length) {
-                var selected = $filter('filter')($scope.groups, {id: user.group});
-                return selected.length ? selected[0].text : 'Not set';
-            } else return 'Not set'
+        $scope.editarTabelaPreco = function (id) {
+            window.location = '/#/editar-tabela-precos/' + id;
         };
 
-        $scope.showStatus = function (user) {
-            var selected = [];
-            if (user.status) {
-                selected = $filter('filter')($scope.statuses, {value: user.status});
-            }
-            return selected.length ? selected[0].text : 'Not set';
+        $scope.deletarTabelaPreco = function (id) {
+            swal({
+                title: "Você tem certeza?",
+                text: "Uma vez deletado, não é possível recuperar esta informação!",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        $http.delete('http://localhost:8000/api/tabela-preco/' + id).then(function (response) {
+                            console.log(response);
+                            if(response.data = 1) {
+                                swal("Parabéns!", "Tabela de preço deletado com sucesso!", "success")
+                                    .then(() => {
+                                        location.reload();
+                                    });
+
+                            }
+                        });
+                    } else {
+                        // console.log('não faz nada');
+                    }
+                });
         };
-
-
-        $scope.removeUser = function (index) {
-            $scope.users.splice(index, 1);
-        };
-
-        $scope.addUser = function () {
-            $scope.inserted = {
-                id: $scope.users.length + 1,
-                name: '',
-                status: null,
-                group: null
-            };
-            $scope.users.push($scope.inserted);
-        };
-
-        editableOptions.theme = 'bs3';
-        editableThemes['bs3'].submitTpl = '<button type="submit" class="btn btn-primary btn-with-icon"><i class="ion-checkmark-round"></i></button>';
-        editableThemes['bs3'].cancelTpl = '<button type="button" ng-click="$form.$cancel()" class="btn btn-default btn-with-icon"><i class="ion-close-round"></i></button>';
-
-
     }
 
 })();

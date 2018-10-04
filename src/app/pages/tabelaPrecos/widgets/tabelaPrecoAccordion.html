@@ -1,39 +1,56 @@
 <uib-accordion>
-    <uib-accordion-group heading="Fornecedor 1" panel-class="panel-primary bootstrap-panel accordion-panel">
+    <uib-accordion-group ng-repeat="item in fornecedores"
+                         heading="Fornecedor: {{item.tx_nome_fornecedor}}"
+                         panel-class="panel-primary bootstrap-panel accordion-panel">
         <div class="row">
             <div class="col-md-12">
                 <div ba-panel ba-panel-class="with-scroll">
-                    <div include-with-scope="app/pages/tabelaPrecos/widgets/tabelaPrecoTabelaEditavel.html"></div>
-                </div>
-            </div>
-        </div>
-    </uib-accordion-group>
+                    <!--<div include-with-scope="app/pages/tabelaPrecos/widgets/tabelaPrecoTabelaEditavel.html"></div>-->
 
-    <uib-accordion-group heading="Fornecedor 2" panel-class="panel-primary bootstrap-panel accordion-panel">
-        <div class="row">
-            <div class="col-md-12">
-                <div ba-panel ba-panel-class="with-scroll">
-                    <div include-with-scope="app/pages/tabelaPrecos/widgets/tabelaPrecoTabelaEditavel.html"></div>
-                </div>
-            </div>
-        </div>
-    </uib-accordion-group>
 
-    <uib-accordion-group heading="Fornecedor 3" panel-class="panel-primary bootstrap-panel accordion-panel">
-        <div class="row">
-            <div class="col-md-12">
-                <div ba-panel ba-panel-class="with-scroll">
-                    <div include-with-scope="app/pages/tabelaPrecos/widgets/tabelaPrecoTabelaEditavel.html"></div>
-                </div>
-            </div>
-        </div>
-    </uib-accordion-group>
+                    <table class="table" st-table="smartTableData">
+                        <thead>
+                        <tr class="sortable ">
+                            <th class="table-id" st-sort="id" st-sort-default="true">#</th>
+                            <th st-sort="firstName">Tabela</th>
+                            <th st-sort="lastName">Serviço</th>
+                            <th st-sort="username">Valor</th>
+                            <th st-sort="username">Percentual de Desconto</th>
+                            <th st-sort="age">Ações</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="itemTabela in item.tabela_preco">
+                            <td class="table-id">{{$index+1}}</td>
+                            <td>{{itemTabela.tx_nome_tabela_preco}}</td>
+                            <td>{{itemTabela.tipo_servico.tx_tipo_servico}}</td>
+                            <td>{{itemTabela.nr_valor}}</td>
+                            <td>{{itemTabela.nr_percentagem_desconto}}%</td>
+                            <td>
+                                <div class="buttons" ng-show="!rowform.$visible">
+                                    <button class="btn btn-primary editable-table-button btn-xs"
+                                            ng-click="editarTabelaPreco(itemTabela.id_tabela_preco)">
+                                        Editar
+                                    </button>
+                                    <button class="btn btn-danger editable-table-button btn-xs"
+                                            ng-click="deletarTabelaPreco(itemTabela.id_tabela_preco)">
+                                        Apagar
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        </tbody>
+                        <tfoot>
+                        <tr>
+                            <td colspan="6" class="text-center">
+                                <div st-pagination="" st-items-by-page="smartTablePageSize"
+                                     st-displayed-pages="5"></div>
+                            </td>
+                        </tr>
+                        </tfoot>
+                    </table>
 
-    <uib-accordion-group heading="Fornecedor 4" panel-class="panel-primary bootstrap-panel accordion-panel">
-        <div class="row">
-            <div class="col-md-12">
-                <div ba-panel ba-panel-class="with-scroll">
-                    <div include-with-scope="app/pages/tabelaPrecos/widgets/tabelaPrecoTabelaEditavel.html"></div>
+
                 </div>
             </div>
         </div>
