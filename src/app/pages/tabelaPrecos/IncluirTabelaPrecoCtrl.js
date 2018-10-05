@@ -11,16 +11,16 @@
     /** @ngInject */
     function IncluirTabelaPrecoCtrl($scope, $filter, editableOptions, editableThemes, $http) {
 
-        $http.get('http://localhost:8000/api/tipo-servico').then(function (response) {
+        $http.get('http://dwddesenvolvimento-api.faromidia.com.br/api/tipo-servico').then(function (response) {
             $scope.tipoServico = response.data;
         });
 
-        $http.get('http://localhost:8000/api/fornecedor').then(function (response) {
+        $http.get('http://dwddesenvolvimento-api.faromidia.com.br/api/fornecedor').then(function (response) {
             $scope.fornecedores = response.data;
         });
 
         $scope.salvarTabelaPreco = function (tabelaPreco) {
-            $http.post('http://localhost:8000/api/tabela-preco', {tabelaPreco: tabelaPreco})
+            $http.post('http://dwddesenvolvimento-api.faromidia.com.br/api/tabela-preco', {tabelaPreco: tabelaPreco})
                 .then(function (response) {
                     console.log(response);
                     if (response.success = true) {

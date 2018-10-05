@@ -11,7 +11,7 @@
     /** @ngInject */
     function EditarFornecedoresCtrl($scope, $http, $stateParams) {
 
-        $http.get('http://localhost:8000/api/fornecedor/' + $stateParams.id).then(function (response) {
+        $http.get('http://dwddesenvolvimento-api.faromidia.com.br/api/fornecedor/' + $stateParams.id).then(function (response) {
             $scope.fornecedor = {
                 id_fornecedores: response.data.id_fornecedores,
                 tx_nome_fornecedor: response.data.tx_nome_fornecedor,
@@ -35,7 +35,7 @@
             };
 
             //TODO -> refatorar isso aqui também, ta se repetindo.
-            $http.get('http://localhost:8000/api/uf').then(function (response) {
+            $http.get('http://dwddesenvolvimento-api.faromidia.com.br/api/uf').then(function (response) {
                 // $scope.enderecoCompleto.uf = response.data;
                 $scope.uf = response.data;
             });
@@ -55,7 +55,7 @@
         $scope.editarFornecedor = function (fornecedor, enderecoCompleto) {
             console.log(fornecedor);
             console.log(enderecoCompleto);
-            $http.put('http://localhost:8000/api/fornecedor/' + fornecedor.id_fornecedores, {
+            $http.put('http://dwddesenvolvimento-api.faromidia.com.br/api/fornecedor/' + fornecedor.id_fornecedores, {
                 fornecedor: fornecedor,
                 enderecoCompleto: enderecoCompleto
             }).then(function (response) {

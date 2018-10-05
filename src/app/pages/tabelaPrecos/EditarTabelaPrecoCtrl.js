@@ -12,15 +12,15 @@
     function EditarTabelaPrecoCtrl($scope, $http, $stateParams) {
 
         //TODO -> refatorar isso aqui também, ta se repetindo.
-        $http.get('http://localhost:8000/api/tipo-servico').then(function (response) {
+        $http.get('http://dwddesenvolvimento-api.faromidia.com.br/api/tipo-servico').then(function (response) {
             $scope.tipoServico = response.data;
         });
 
-        $http.get('http://localhost:8000/api/fornecedor').then(function (response) {
+        $http.get('http://dwddesenvolvimento-api.faromidia.com.br/api/fornecedor').then(function (response) {
             $scope.fornecedores = response.data;
         });
 
-        $http.get('http://localhost:8000/api/tabela-preco/' + $stateParams.id).then(function (response) {
+        $http.get('http://dwddesenvolvimento-api.faromidia.com.br/api/tabela-preco/' + $stateParams.id).then(function (response) {
             console.log(response);
             $scope.tabelaPreco = {
                 id_fornecedores: response.data.id_fornecedores,
@@ -37,7 +37,7 @@
         $scope.editarTabelaPreco = function (fornecedor, enderecoCompleto) {
             console.log(fornecedor);
             console.log(enderecoCompleto);
-            $http.put('http://localhost:8000/api/tabela-preco/' + fornecedor.id_fornecedores, {
+            $http.put('http://dwddesenvolvimento-api.faromidia.com.br/api/tabela-preco/' + fornecedor.id_fornecedores, {
                 fornecedor: fornecedor,
                 enderecoCompleto: enderecoCompleto
             }).then(function (response) {

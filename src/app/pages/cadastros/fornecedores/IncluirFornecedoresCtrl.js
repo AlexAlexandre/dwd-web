@@ -1,6 +1,6 @@
 /**
- * @author v.lugovsky
- * created on 16.12.2015
+ * @author Alex Alexandre
+ * criado em 03/10/2018
  */
 (function () {
     'use strict';
@@ -21,7 +21,7 @@
             tx_complemento: null
         };
 
-        $http.get('http://localhost:8000/api/uf').then(function (response) {
+        $http.get('http://dwddesenvolvimento-api.faromidia.com.br/api/uf').then(function (response) {
             // $scope.enderecoCompleto.uf = response.data;
             $scope.uf = response.data;
         });
@@ -39,7 +39,7 @@
 
         $scope.salvarFornecedor = function (fornecedor, enderecoCompleto) {
 
-            $http.post('http://localhost:8000/api/fornecedor', {
+            $http.post('http://dwddesenvolvimento-api.faromidia.com.br/api/fornecedor', {
                 fornecedor: fornecedor,
                 enderecoCompleto: enderecoCompleto
             }).then(function (response) {

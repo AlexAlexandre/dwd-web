@@ -1,6 +1,6 @@
 /**
- * @author v.lugovsky
- * created on 16.12.2015
+ * @author Alex Alexandre
+ * Criado em 03/10/2018
  */
 (function () {
     'use strict';
@@ -14,7 +14,7 @@
 
         $scope.smartTablePageSize = 10;
 
-        $http.get('http://localhost:8000/api/fornecedor').then(function (response) {
+        $http.get('http://dwddesenvolvimento-api.faromidia.com.br/api/fornecedor').then(function (response) {
             console.log(response);
             $scope.fornecedorTable = response.data;
         });
@@ -33,7 +33,7 @@
             })
                 .then(function (willDelete) {
                     if (willDelete) {
-                        $http.delete('http://localhost:8000/api/fornecedor/' + id).then(function (response) {
+                        $http.delete('http://dwddesenvolvimento-api.faromidia.com.br/api/fornecedor/' + id).then(function (response) {
                             console.log(response);
                             if(response.data = 1) {
                                 swal("Parabéns!", "Fornecedor deletado com sucesso!", "success")

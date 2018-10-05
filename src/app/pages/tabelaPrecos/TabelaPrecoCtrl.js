@@ -1,6 +1,6 @@
 /**
- * @author v.lugovsky
- * created on 16.12.2015
+ * @author Alex Alexandre
+ * Criado em 03/10/2018
  */
 (function () {
     'use strict';
@@ -10,7 +10,7 @@
 
     /** @ngInject */
     function TabelaPrecoCtrl($scope, $filter, editableOptions, editableThemes, $http) {
-        $http.get('http://localhost:8000/api/tabela-preco').then(function (response) {
+        $http.get('http://dwddesenvolvimento-api.faromidia.com.br/api/tabela-preco').then(function (response) {
             $scope.fornecedores = response.data;
         });
 
@@ -28,7 +28,7 @@
             })
                 .then(function (willDelete) {
                     if (willDelete) {
-                        $http.delete('http://localhost:8000/api/tabela-preco/' + id).then(function (response) {
+                        $http.delete('http://dwddesenvolvimento-api.faromidia.com.br/api/tabela-preco/' + id).then(function (response) {
                             console.log(response);
                             if(response.data = 1) {
                                 swal("Parabéns!", "Tabela de preço deletado com sucesso!", "success")
