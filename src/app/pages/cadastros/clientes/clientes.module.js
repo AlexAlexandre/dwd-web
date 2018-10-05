@@ -19,13 +19,19 @@
                 sidebarMeta: {
                     order: 3,
                 },
+            })
+            .state('cadastros.clientes-incluir', {
+                url: '/incluir-clientes',
+                templateUrl: 'app/pages/cadastros/clientes/incluir-clientes.html',
+                controller: 'IncluirClientesCtrl',
+                title: 'Incluir Clientes'
+            })
+            .state('cadastros.clientes-editar', {
+                url: '/editar-clientes/:id',
+                templateUrl: 'app/pages/cadastros/clientes/editar-clientes.html',
+                controller: 'EditarClientesCtrl',
+                title: 'Editar Clientes'
             });
-            // .state('cadastros.clientes-incluir', {
-            //     url: '/incluir-clientes',
-            //     templateUrl: 'app/pages/cadastros/clientes/incluir-clientes.html',
-            //     controller: 'IncluirClientesCtrl',
-            //     title: 'Incluir Clientes'
-            // });
     }
 
 })();

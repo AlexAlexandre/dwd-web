@@ -7,34 +7,34 @@
         </label>
     </div>
     <div class="form-group right-important">
-        <a ng-href="/#/cadastros/incluir-espacos" class="btn btn-primary"> <!--ng-click="addUser()"-->
-            Incluir novo Espaço
+        <a ng-href="/#/cadastros/incluir-clientes" class="btn btn-primary"> <!--ng-click="addUser()"-->
+            Incluir novo Cliente
         </a>
     </div>
     <table class="table" st-table="smartTableData">
         <thead>
         <tr class="sortable ">
             <th class="table-id" st-sort="id" st-sort-default="true">#</th>
-            <th st-sort="firstName">Nome do condomínio</th>
-            <th st-sort="lastName">Nome do espaço</th>
-            <th st-sort="username">Torre</th>
-            <th st-sort="email">Status</th>
+            <th st-sort="firstName">Nome do cliente</th>
+            <th st-sort="lastName">Nome Fantasia</th>
+            <th st-sort="username">E-mail Comercial</th>
+            <th st-sort="email">CNPJ</th>
             <th st-sort="age">Ações</th>
         </tr>
         </thead>
         <tbody>
-        <tr ng-repeat="item in smartTableData">
-            <td class="table-id">{{item.id}}</td>
-            <td>{{item.firstName}}</td>
-            <td>{{item.lastName}}</td>
-            <td>{{item.username}}</td>
-            <td><a class="email-link" ng-href="mailto:{{item.email}}">{{item.email}}</a></td>
+        <tr ng-repeat="item in clienteTableData">
+            <td class="table-id">{{$index}}</td>
+            <td>{{item.tx_nome_contato}}</td>
+            <td>{{item.tx_nome_fantasia}}</td>
+            <td>{{item.tx_email_comercial}}</td>
+            <td>{{item.nr_cnpj_cliente}}</td>
             <td>
                 <div class="buttons" ng-show="!rowform.$visible">
-                    <button class="btn btn-primary editable-table-button btn-xs" ng-click="rowform.$show()">
+                    <button class="btn btn-primary editable-table-button btn-xs" ng-click="editarCliente(item.id_clientes)">
                         Editar
                     </button>
-                    <button class="btn btn-danger editable-table-button btn-xs" ng-click="removeUser($index)">
+                    <button class="btn btn-danger editable-table-button btn-xs" ng-click="deletarCliente(item.id_clientes)">
                         Apagar
                     </button>
                 </div>

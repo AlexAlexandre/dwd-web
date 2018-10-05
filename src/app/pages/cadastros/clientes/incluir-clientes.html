@@ -1,0 +1,23 @@
+<div class="widgets">
+
+    <div class="row">
+        <div class="col-md-12">
+            <div ba-panel ba-panel-class="with-scroll">
+                <div include-with-scope="app/pages/cadastros/clientes/widgets/clientes-form.html"></div>
+                <ul class="pager ba-wizard-pager">
+                    <li class="previous">
+                        <button type="button" class=" btn btn-danger" onclick="window.history.go(-1); return false;">
+                            Cancelar
+                        </button>
+                    </li>
+                    <li class="next">
+                        <button type="button" class="btn btn-primary" ng-click="salvarCliente(cliente)">
+                            Salvar
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</div>
