@@ -1,6 +1,6 @@
 /**
- * @author v.lugovsky
- * created on 16.12.2015
+ * @author Alex Alexandre
+ * Criado em 07/10/2018
  */
 (function () {
     'use strict';
@@ -25,6 +25,12 @@
                 templateUrl: 'app/pages/cadastros/espacos/incluir-espacos.html',
                 controller: 'IncluirEspacosCtrl',
                 title: 'Incluir Espaços'
+            })
+            .state('cadastros.espacos-editar', {
+                url: '/editar-espacos/:id',
+                templateUrl: 'app/pages/cadastros/espacos/editar-espacos.html',
+                controller: 'EditarEspacosCtrl',
+                title: 'Editar Espaços'
             });
     }
 

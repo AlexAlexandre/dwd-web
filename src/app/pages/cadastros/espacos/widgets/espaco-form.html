@@ -1,0 +1,106 @@
+<div class="row">
+    <div class="col-sm-6">
+        <div class="input-demo radio-demo row">
+            <div class="form-group">
+                <div class="col-md-4">
+                    <label class="radio-inline custom-radio nowrap">
+                        <input type="radio" name="status_espaco" ng-model="espaco.status_espaco"
+                               value="Disponivel">
+                        <span>Espaço Disponível</span>
+                    </label>
+                </div>
+                <div class="col-md-4">
+                    <label class="radio-inline custom-radio nowrap">
+                        <input type="radio" name="status_espaco" ng-model="espaco.status_espaco"
+                               value="Negociação">
+                        <span>Espaço em Negociação</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<br><br>
+
+<div class="row">
+    <div class="col-sm-6">
+        <div class="form-group">
+            <label for="tx_nome_condominio">Nome do Condomínio</label>
+            <span style="color: red;">*</span>
+            <input type="text" class="form-control" id="tx_nome_condominio" ng-model="espaco.tx_nome_condominio">
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="form-group">
+            <label for="qtd_vagas_condominio">Quantidade de Vagas (Estacionamento)</label>
+            <span style="color: red;">*</span>
+            <input type="text" class="form-control" id="qtd_vagas_condominio" ng-model="espaco.qtd_vagas_condominio" maxlength="11">
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-6">
+        <div class="form-group">
+            <label for="tx_regras_condominio">Regras do Condominio</label>
+            <span style="color: red;">*</span>
+            <input type="text" class="form-control" id="tx_regras_condominio" ng-model="espaco.tx_regras_condominio">
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="form-group">
+            <label for="tx_contato_condominio">Contato do Condominio</label>
+            <span style="color: red;">*</span>
+            <input type="tel" class="form-control" id="tx_contato_condominio" ng-model="espaco.tx_contato_condominio">
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-6">
+        <div class="form-group">
+            <label for="hr_inicio_funcionamento">Hora Inicial de Funcionamento</label>
+            <span style="color: red;">*</span>
+            <input type="text" class="form-control" id="hr_inicio_funcionamento" ng-model="espaco.hr_inicio_funcionamento">
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="form-group">
+            <label for="hr_fim_funcionamento">Hora Final de Funcionamento</label>
+            <span style="color: red;">*</span>
+            <input type="text" class="form-control" id="hr_fim_funcionamento" ng-model="espaco.hr_fim_funcionamento">
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-6">
+        <div class="form-group">
+            <label for="tx_nome_administradora">Nome da Administradora</label>
+            <span style="color: red;">*</span>
+            <input type="text" class="form-control" id="tx_nome_administradora" ng-model="espaco.tx_nome_administradora">
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="form-group">
+            <label for="tx_contato_administradora">Contato da Administradora</label>
+            <span style="color: red;">*</span>
+            <input type="text" class="form-control" id="tx_contato_administradora" ng-model="espaco.tx_contato_administradora">
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-6">
+        <div class="form-group">
+            <label for="nr_unidade">Número da unidade</label>
+            <span style="color: red;">*</span>
+            <input type="text" class="form-control" id="nr_unidade" ng-model="espaco.nr_unidade">
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="form-group">
+            <label for="tx_endereco">Endereço Completo</label>
+            <span style="color: red;">*</span>
+            <input type="text" class="form-control" id="tx_endereco" ng-model="espaco.tx_endereco">
+        </div>
+    </div>
+</div>

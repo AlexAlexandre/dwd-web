@@ -1,0 +1,16 @@
+<div class="row">
+    <div class="form-group">
+        <ui-select multiple ng-model="espaco.tabelaPreco"
+                   ng-disabled="false"
+                   search-enabled="true"
+                   append-to-body="true"
+                   class="form-control ">
+            <ui-select-match placeholder="Selecione todas as tabelas de preços necessárisa">
+                {{$item.tx_nome_tabela_preco}}
+            </ui-select-match>
+            <ui-select-choices repeat="tb in tabelaPreco | filter: $select.search">
+                {{tb.tx_nome_tabela_preco}}
+            </ui-select-choices>
+        </ui-select>
+    </div>
+</div>

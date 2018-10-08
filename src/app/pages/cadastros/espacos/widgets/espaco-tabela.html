@@ -16,28 +16,26 @@
         <tr class="sortable ">
             <th class="table-id" st-sort="id" st-sort-default="true">#</th>
             <th st-sort="firstName">Nome do condomínio</th>
-            <th st-sort="lastName">Nome do espaço</th>
-            <th st-sort="username">Torre</th>
+            <th st-sort="lastName">Responsável do Condomínio</th>
+            <th st-sort="username">Nome do Responsável</th>
             <th st-sort="email">Status</th>
             <th st-sort="age">Ações</th>
         </tr>
         </thead>
         <tbody>
-        <tr ng-repeat="item in smartTableData">
-            <td class="table-id">{{item.id}}</td>
-            <td>{{item.firstName}}</td>
-            <td>{{item.lastName}}</td>
-            <td>{{item.username}}</td>
-            <td><a class="email-link" ng-href="mailto:{{item.email}}">{{item.email}}</a></td>
+        <tr ng-repeat="item in espacoTable">
+            <td class="table-id">{{$index}}</td>
+            <td>{{item.tx_nome_condominio}}</td>
+            <td>{{item.tx_contato_condominio}}</td>
+            <td>{{item.tx_nome_completo}}</td>
+            <td><a class="email-link" ng-href="mailto:{{item.status_espaco}}">{{item.status_espaco}}</a></td>
             <td>
-                <div class="buttons" ng-show="!rowform.$visible">
-                    <button class="btn btn-primary editable-table-button btn-xs" ng-click="rowform.$show()">
-                        Editar
-                    </button>
-                    <button class="btn btn-danger editable-table-button btn-xs" ng-click="removeUser($index)">
-                        Apagar
-                    </button>
-                </div>
+                <button class="btn btn-primary editable-table-button btn-xs" ng-click="editarEspaco(item.id_espacos)">
+                    Editar
+                </button>
+                <button class="btn btn-danger editable-table-button btn-xs" ng-click="deletarEspaco(item.id_espacos)">
+                    Apagar
+                </button>
             </td>
         </tr>
         </tbody>
