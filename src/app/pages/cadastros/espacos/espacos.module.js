@@ -31,6 +31,18 @@
                 templateUrl: 'app/pages/cadastros/espacos/editar-espacos.html',
                 controller: 'EditarEspacosCtrl',
                 title: 'Editar Espaços'
+            })
+            .state('cadastros.espacos-sala', {
+                url: '/espacos/salas/:id',
+                templateUrl: 'app/pages/cadastros/espacos/salas.html',
+                controller: 'EspacosSalasCtrl',
+                title: 'Salas'
+            })
+            .state('cadastros.espacos-sala-editar', {
+                url: '/espacos/salas-editar/:id',
+                templateUrl: 'app/pages/cadastros/espacos/editar-salas.html',
+                controller: 'EditarEspacosSalasCtrl',
+                title: 'Editar Sala'
             });
     }
 

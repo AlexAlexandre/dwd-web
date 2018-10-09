@@ -19,6 +19,7 @@
             <th st-sort="lastName">Responsável do Condomínio</th>
             <th st-sort="username">Nome do Responsável</th>
             <th st-sort="email">Status</th>
+            <th st-sort="email">Quantidade de Salas</th>
             <th st-sort="age">Ações</th>
         </tr>
         </thead>
@@ -28,13 +29,18 @@
             <td>{{item.tx_nome_condominio}}</td>
             <td>{{item.tx_contato_condominio}}</td>
             <td>{{item.tx_nome_completo}}</td>
-            <td><a class="email-link" ng-href="mailto:{{item.status_espaco}}">{{item.status_espaco}}</a></td>
+            <td>{{item.status_espaco}}</td>
+            <td>{{item.espacos_salas.length}}</td>
             <td>
                 <button class="btn btn-primary editable-table-button btn-xs" ng-click="editarEspaco(item.id_espacos)">
                     Editar
                 </button>
                 <button class="btn btn-danger editable-table-button btn-xs" ng-click="deletarEspaco(item.id_espacos)">
                     Apagar
+                </button>
+                <br>
+                <button class="btn btn-info btn-xs" ng-click="gerenciarSalas(item.id_espacos)">
+                    Gerenciar Salas
                 </button>
             </td>
         </tr>

@@ -64,6 +64,21 @@
                             </li>
                         </ul>
                     </uib-tab>
+                    <uib-tab heading="Crias Salas">
+                        <div include-with-scope="app/pages/cadastros/espacos/widgets/salas-form.html"></div>
+                        <ul class="pager ba-wizard-pager">
+                            <li class="previous">
+                                <button type="button" class=" btn btn-danger" onclick="window.history.go(-1); return false;">
+                                    Cancelar
+                                </button>
+                            </li>
+                            <li class="next">
+                                <button type="button" class="btn btn-primary" ng-click="salvarEspaco(espaco)">
+                                    Salvar
+                                </button>
+                            </li>
+                        </ul>
+                    </uib-tab>
                     <uib-tab heading="Imagens">
                         <div include-with-scope="app/pages/cadastros/espacos/widgets/fotos-form.html"></div>
                         <ul class="pager ba-wizard-pager">

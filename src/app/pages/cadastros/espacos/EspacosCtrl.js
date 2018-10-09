@@ -21,6 +21,10 @@
             window.location = '/#/cadastros/editar-espacos/' + id;
         };
 
+        $scope.gerenciarSalas = function (id) {
+            window.location = '/#/cadastros/espacos/salas/' + id;
+        };
+
         $scope.deletarEspaco = function (id) {
             swal({
                 title: "Você tem certeza?",

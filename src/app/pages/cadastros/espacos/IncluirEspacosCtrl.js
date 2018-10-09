@@ -15,6 +15,7 @@
 
       $scope.salvarEspaco = function (espaco) {
         console.log(espaco);
+          // 'http://dwddesenvolvimento-api.faromidia.com.br/api/espacos'
           $http.post('http://dwddesenvolvimento-api.faromidia.com.br/api/espacos', {
               espaco: espaco
           }).then(function (response) {
