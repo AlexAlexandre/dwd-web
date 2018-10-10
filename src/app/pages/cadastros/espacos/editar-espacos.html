@@ -58,11 +58,39 @@
                                 </button>
                             </li>
                             <li class="next">
-                                <button type="button" class="btn btn-primary" ng-click="editarEspaco(espaco)">
+                                <button type="button" class="btn btn-primary" ng-click="editarEspaco(espaco, espaco.tabelaPreco)">
                                     Salvar
                                 </button>
                             </li>
                         </ul>
+                        <br>
+                        <div class="row">
+                            <h4>Tabelas já cadastradas</h4>
+
+                            <table class="table" st-table="smartTableData">
+                                <thead>
+                                <tr class="sortable ">
+                                    <th class="table-id" st-sort="id" st-sort-default="true">#</th>
+                                    <th st-sort="firstName">Nome da Tabela</th>
+                                    <th st-sort="lastName">Descrição dos Serviços</th>
+                                    <th st-sort="age">Ações</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr ng-repeat="tb in tabelaPrecoEspaco">
+                                    <td class="table-id">{{$index}}</td>
+                                    <td>{{tb.tabela_preco.tx_nome_tabela_preco}}</td>
+                                    <td>{{tb.tabela_preco.tx_descricao_servico}}</td>
+                                    <td>
+                                        <button class="btn btn-danger editable-table-button btn-xs" ng-click="deletarEspacoTB()">
+                                            Apagar
+                                        </button>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
                     </uib-tab>
                     <uib-tab heading="Crias Salas">
                         <div include-with-scope="app/pages/cadastros/espacos/widgets/salas-form.html"></div>

@@ -9,18 +9,18 @@
         .controller('EditarTabelaPrecoCtrl', EditarTabelaPrecoCtrl);
 
     /** @ngInject */
-    function EditarTabelaPrecoCtrl($scope, $http, $stateParams) {
+    function EditarTabelaPrecoCtrl($scope, $http, $stateParams, CONFIG) {
 
         //TODO -> refatorar isso aqui também, ta se repetindo.
-        $http.get('http://dwddesenvolvimento-api.faromidia.com.br/api/tipo-servico').then(function (response) {
+        $http.get(CONFIG.dwdApi + '/tipo-servico').then(function (response) {
             $scope.tipoServico = response.data;
         });
 
-        $http.get('http://dwddesenvolvimento-api.faromidia.com.br/api/fornecedor').then(function (response) {
+        $http.get(CONFIG.dwdApi + '/fornecedor').then(function (response) {
             $scope.fornecedores = response.data;
         });
 
-        $http.get('http://dwddesenvolvimento-api.faromidia.com.br/api/tabela-preco/' + $stateParams.id).then(function (response) {
+        $http.get(CONFIG.dwdApi + '/tabela-preco/' + $stateParams.id).then(function (response) {
             console.log(response);
             $scope.tabelaPreco = {
                 id_fornecedores: response.data.id_fornecedores,
@@ -37,7 +37,7 @@
         $scope.editarTabelaPreco = function (fornecedor, enderecoCompleto) {
             console.log(fornecedor);
             console.log(enderecoCompleto);
-            $http.put('http://dwddesenvolvimento-api.faromidia.com.br/api/tabela-preco/' + fornecedor.id_fornecedores, {
+            $http.put(CONFIG.dwdApi + '/tabela-preco/' + fornecedor.id_fornecedores, {
                 fornecedor: fornecedor,
                 enderecoCompleto: enderecoCompleto
             }).then(function (response) {

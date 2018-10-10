@@ -9,18 +9,18 @@
         .controller('IncluirTabelaPrecoCtrl', IncluirTabelaPrecoCtrl);
 
     /** @ngInject */
-    function IncluirTabelaPrecoCtrl($scope, $filter, editableOptions, editableThemes, $http) {
+    function IncluirTabelaPrecoCtrl($scope, $filter, editableOptions, editableThemes, $http, CONFIG) {
 
-        $http.get('http://dwddesenvolvimento-api.faromidia.com.br/api/tipo-servico').then(function (response) {
+        $http.get(CONFIG.dwdApi + '/tipo-servico').then(function (response) {
             $scope.tipoServico = response.data;
         });
 
-        $http.get('http://dwddesenvolvimento-api.faromidia.com.br/api/fornecedor').then(function (response) {
+        $http.get(CONFIG.dwdApi + '/fornecedor').then(function (response) {
             $scope.fornecedores = response.data;
         });
 
         $scope.salvarTabelaPreco = function (tabelaPreco) {
-            $http.post('http://dwddesenvolvimento-api.faromidia.com.br/api/tabela-preco', {tabelaPreco: tabelaPreco})
+            $http.post(CONFIG.dwdApi + '/tabela-preco', {tabelaPreco: tabelaPreco})
                 .then(function (response) {
                     console.log(response);
                     if (response.success = true) {

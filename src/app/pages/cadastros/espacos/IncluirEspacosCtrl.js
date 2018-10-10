@@ -7,12 +7,6 @@
   /** @ngInject */
   function IncluirEspacosCtrl($scope, $http, CONFIG) {
 
-      $http.get(CONFIG.dwdApi + '/listar-tabela-preco').then(function (response) {
-          console.log('tabela de preco');
-          console.log(response);
-          $scope.tabelaPreco = response.data;
-      });
-
       $scope.salvarEspaco = function (espaco) {
         console.log(espaco);
           $http.post(CONFIG.dwdApi + '/espacos', {

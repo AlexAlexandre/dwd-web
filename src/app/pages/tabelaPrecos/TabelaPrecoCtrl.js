@@ -9,8 +9,8 @@
         .controller('TabelaPrecoCtrl', TabelaPrecoCtrl);
 
     /** @ngInject */
-    function TabelaPrecoCtrl($scope, $filter, editableOptions, editableThemes, $http) {
-        $http.get('http://dwddesenvolvimento-api.faromidia.com.br/api/tabela-preco').then(function (response) {
+    function TabelaPrecoCtrl($scope, $filter, editableOptions, editableThemes, $http, CONFIG) {
+        $http.get(CONFIG.dwdApi + '/tabela-preco').then(function (response) {
             $scope.fornecedores = response.data;
         });
 
@@ -28,7 +28,7 @@
             })
                 .then(function (willDelete) {
                     if (willDelete) {
-                        $http.delete('http://dwddesenvolvimento-api.faromidia.com.br/api/tabela-preco/' + id).then(function (response) {
+                        $http.delete(CONFIG.dwdApi + '/tabela-preco/' + id).then(function (response) {
                             console.log(response);
                             if(response.data = 1) {
                                 swal("Parabéns!", "Tabela de preço deletado com sucesso!", "success")

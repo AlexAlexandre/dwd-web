@@ -11,6 +11,12 @@
     /** @ngInject */
     function EditarEspacosCtrl($scope, $http, $stateParams, CONFIG) {
 
+        $http.get(CONFIG.dwdApi + '/listar-tabela-preco').then(function (response) {
+            console.log('tabela de preco');
+            console.log(response);
+            $scope.tabelaPreco = response.data;
+        });
+
         $http.get(CONFIG.dwdApi + '/espacos/' + $stateParams.id).then(function (response) {
             console.log(response.data);
             $scope.espaco = {
@@ -42,14 +48,20 @@
                 tx_cargo: response.data.tx_cargo,
                 tx_email_comercial_resp: response.data.tx_email_comercial_resp,
                 tx_desc_ativ_resp: response.data.tx_desc_ativ_resp,
+
             };
+
+            $scope.tabelaPrecoEspaco = response.data.espacos_tabela;
+
+            console.log($scope.tabelaPrecoEspaco);
 
         });
 
-        $scope.editarEspaco = function (espaco) {
+        $scope.editarEspaco = function (espaco, tabelaPreco = null) {
             console.log(espaco);
             $http.put(CONFIG.dwdApi + '/espacos/' + espaco.id_espacos, {
-                espaco: espaco
+                espaco: espaco,
+                tabelaPreco: tabelaPreco ? tabelaPreco : null
             }).then(function (response) {
                 if (response.success = true) {
                     swal("Parabéns!", "Espaço editado com sucesso!", "success")
@@ -58,6 +70,32 @@
                         });
                 }
             });
+        };
+
+        $scope.deletarEspacoTB = function (tb, espaco) {
+            swal({
+                title: "Você tem certeza?",
+                text: "Uma vez deletado, não é possível recuperar esta informação!",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+                .then(function (willDelete) {
+                    if (willDelete) {
+                        $http.delete(CONFIG.dwdApi + '/espacos/tabela-preco/' + tb + '/' + espaco).then(function (response) {
+                            console.log(response);
+                            if(response.data = 1) {
+                                swal("Parabéns!", "Sala deletada com sucesso!", "success")
+                                    .then(function () {
+                                        location.reload();
+                                    });
+
+                            }
+                        });
+                    } else {
+                        // console.log('não faz nada');
+                    }
+                });
         }
     }
 
