@@ -11,8 +11,8 @@
     'use strict';
 
     angular.module('BlurAdmin.config', []).constant("CONFIG", {
-        dwdApi: "http://localhost:8000/api"
-        // dwdApi: "http://dwddesenvolvimento-api.faromidia.com.br/api"
+        // dwdApi: "http://localhost:8000/api"
+        dwdApi: "http://dwddesenvolvimento-api.faromidia.com.br/api"
     });
 
     // /** @ngInject */
