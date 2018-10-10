@@ -57,7 +57,7 @@
 
         });
 
-        $scope.editarEspaco = function (espaco, tabelaPreco = null) {
+        $scope.editarEspaco = function (espaco, tabelaPreco) {
             console.log(espaco);
             $http.put(CONFIG.dwdApi + '/espacos/' + espaco.id_espacos, {
                 espaco: espaco,
