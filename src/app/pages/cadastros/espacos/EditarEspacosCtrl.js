@@ -9,9 +9,9 @@
         .controller('EditarEspacosCtrl', EditarEspacosCtrl);
 
     /** @ngInject */
-    function EditarEspacosCtrl($scope, $http, $stateParams) {
+    function EditarEspacosCtrl($scope, $http, $stateParams, CONFIG) {
 
-        $http.get('http://dwddesenvolvimento-api.faromidia.com.br/api/espacos/' + $stateParams.id).then(function (response) {
+        $http.get(CONFIG.dwdApi + '/espacos/' + $stateParams.id).then(function (response) {
             console.log(response.data);
             $scope.espaco = {
                 id_espacos: response.data.id_espacos,
@@ -48,7 +48,7 @@
 
         $scope.editarEspaco = function (espaco) {
             console.log(espaco);
-            $http.put('http://dwddesenvolvimento-api.faromidia.com.br/api/espacos/' + espaco.id_espacos, {
+            $http.put(CONFIG.dwdApi + '/espacos/' + espaco.id_espacos, {
                 espaco: espaco
             }).then(function (response) {
                 if (response.success = true) {

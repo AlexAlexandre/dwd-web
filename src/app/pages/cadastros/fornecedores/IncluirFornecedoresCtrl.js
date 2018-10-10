@@ -9,7 +9,7 @@
         .controller('IncluirFornecedoresCtrl', IncluirFornecedoresCtrl);
 
     /** @ngInject */
-    function IncluirFornecedoresCtrl($scope, $http) {
+    function IncluirFornecedoresCtrl($scope, $http, CONFIG) {
 //TODO - implementar lógica, para digitar primeiro o CEP, e já trazer selecionado a UF e a CIDADE
 
 
@@ -21,7 +21,7 @@
             tx_complemento: null
         };
 
-        $http.get('http://dwddesenvolvimento-api.faromidia.com.br/api/uf').then(function (response) {
+        $http.get(CONFIG.dwdApi + '/uf').then(function (response) {
             // $scope.enderecoCompleto.uf = response.data;
             $scope.uf = response.data;
         });
@@ -39,7 +39,7 @@
 
         $scope.salvarFornecedor = function (fornecedor, enderecoCompleto) {
 
-            $http.post('http://dwddesenvolvimento-api.faromidia.com.br/api/fornecedor', {
+            $http.post(CONFIG.dwdApi + '/fornecedor', {
                 fornecedor: fornecedor,
                 enderecoCompleto: enderecoCompleto
             }).then(function (response) {

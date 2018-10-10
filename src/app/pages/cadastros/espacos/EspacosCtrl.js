@@ -9,10 +9,10 @@
         .controller('EspacosCtrl', EspacosCtrl);
 
     /** @ngInject */
-    function EspacosCtrl($scope, $filter, editableOptions, editableThemes, $http) {
+    function EspacosCtrl($scope, $filter, editableOptions, editableThemes, $http, CONFIG) {
 
         $scope.espacoPageSize = 10;
-        $http.get('http://dwddesenvolvimento-api.faromidia.com.br/api/espacos').then(function (response) {
+        $http.get(CONFIG.dwdApi + '/espacos').then(function (response) {
             console.log(response);
             $scope.espacoTable = response.data;
         });
@@ -35,7 +35,7 @@
             })
                 .then(function (willDelete) {
                     if (willDelete) {
-                        $http.delete('http://dwddesenvolvimento-api.faromidia.com.br/api/espacos/' + id).then(function (response) {
+                        $http.delete(CONFIG.dwdApi + '/espacos/' + id).then(function (response) {
                             console.log(response);
                             if(response.data = 1) {
                                 swal("Parabéns!", "Espaço deletado com sucesso!", "success")

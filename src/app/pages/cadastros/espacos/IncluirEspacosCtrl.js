@@ -5,9 +5,9 @@
       .controller('IncluirEspacosCtrl', IncluirEspacosCtrl);
 
   /** @ngInject */
-  function IncluirEspacosCtrl($scope, $http) {
+  function IncluirEspacosCtrl($scope, $http, CONFIG) {
 
-      $http.get('http://dwddesenvolvimento-api.faromidia.com.br/api/listar-tabela-preco').then(function (response) {
+      $http.get(CONFIG.dwdApi + '/listar-tabela-preco').then(function (response) {
           console.log('tabela de preco');
           console.log(response);
           $scope.tabelaPreco = response.data;
@@ -15,8 +15,7 @@
 
       $scope.salvarEspaco = function (espaco) {
         console.log(espaco);
-          // 'http://dwddesenvolvimento-api.faromidia.com.br/api/espacos'
-          $http.post('http://dwddesenvolvimento-api.faromidia.com.br/api/espacos', {
+          $http.post(CONFIG.dwdApi + '/espacos', {
               espaco: espaco
           }).then(function (response) {
               if (response.success = true) {

@@ -9,12 +9,12 @@
         .controller('FornecedoresCtrl', FornecedoresCtrl);
 
     /** @ngInject */
-    function FornecedoresCtrl($scope, $filter, editableOptions, editableThemes, $http) {
+    function FornecedoresCtrl($scope, $filter, editableOptions, editableThemes, $http, CONFIG) {
 
 
         $scope.smartTablePageSize = 10;
 
-        $http.get('http://dwddesenvolvimento-api.faromidia.com.br/api/fornecedor').then(function (response) {
+        $http.get(CONFIG.dwdApi + '/fornecedor').then(function (response) {
             console.log(response);
             $scope.fornecedorTable = response.data;
         });
@@ -33,7 +33,7 @@
             })
                 .then(function (willDelete) {
                     if (willDelete) {
-                        $http.delete('http://dwddesenvolvimento-api.faromidia.com.br/api/fornecedor/' + id).then(function (response) {
+                        $http.delete(CONFIG.dwdApi + '/fornecedor/' + id).then(function (response) {
                             console.log(response);
                             if(response.data = 1) {
                                 swal("Parabéns!", "Fornecedor deletado com sucesso!", "success")

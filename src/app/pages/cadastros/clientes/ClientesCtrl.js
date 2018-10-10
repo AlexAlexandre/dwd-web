@@ -9,11 +9,11 @@
         .controller('ClientesCtrl', ClientesCtrl);
 
     /** @ngInject */
-    function ClientesCtrl($scope, $filter, editableOptions, editableThemes, $http) {
+    function ClientesCtrl($scope, $filter, editableOptions, editableThemes, $http, CONFIG) {
 
         $scope.espacoPageSize = 10;
 
-        $http.get('http://dwddesenvolvimento-api.faromidia.com.br/api/clientes').then(function (response) {
+        $http.get(CONFIG.dwdApi + '/clientes').then(function (response) {
             console.log(response);
             $scope.clienteTableData = response.data;
         });
@@ -32,7 +32,7 @@
             })
                 .then(function (willDelete) {
                     if (willDelete) {
-                        $http.delete('http://dwddesenvolvimento-api.faromidia.com.br/api/clientes/' + id).then(function (response) {
+                        $http.delete(CONFIG.dwdApi + '/clientes/' + id).then(function (response) {
                             console.log(response);
                             if(response.data = 1) {
                                 swal("Parabéns!", "Cliente deletado com sucesso!", "success")

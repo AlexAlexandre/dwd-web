@@ -9,10 +9,10 @@
         .controller('EspacosSalasCtrl', EspacosSalasCtrl);
 
     /** @ngInject */
-    function EspacosSalasCtrl($scope, $filter, editableOptions, editableThemes, $http, $stateParams) {
+    function EspacosSalasCtrl($scope, $filter, editableOptions, editableThemes, $http, $stateParams, CONFIG) {
         console.log('espaco sla contron');
 
-        $http.get('http://dwddesenvolvimento-api.faromidia.com.br/api/espacos/salas/' + $stateParams.id).then(function (response) {
+        $http.get(CONFIG.dwdApi + '/espacos/salas/' + $stateParams.id).then(function (response) {
             console.log(response);
             $scope.espacoSalaTable = response.data;
         });
@@ -33,7 +33,7 @@
             })
                 .then(function (willDelete) {
                     if (willDelete) {
-                        // $http.delete('http://dwddesenvolvimento-api.faromidia.com.br/api/espacos/salas' + id).then(function (response) {
+                        // $http.delete(CONFIG.dwdApi + '/espacos/salas' + id).then(function (response) {
                         //     console.log(response);
                         //     if(response.data = 1) {
                         //         swal("Parabéns!", "Sala deletada com sucesso!", "success")

@@ -9,8 +9,8 @@
         .controller('EditarClientesCtrl', EditarClientesCtrl);
 
     /** @ngInject */
-    function EditarClientesCtrl($scope, $http, $stateParams) {
-        $http.get('http://dwddesenvolvimento-api.faromidia.com.br/api/clientes/' + $stateParams.id).then(function (response) {
+    function EditarClientesCtrl($scope, $http, $stateParams, CONFIG) {
+        $http.get(CONFIG.dwdApi + '/clientes/' + $stateParams.id).then(function (response) {
             $scope.cliente = {
                 id_clientes: response.data.id_clientes,
                 tx_razao_social: response.data.tx_razao_social,
@@ -26,9 +26,7 @@
         });
 
         $scope.editarCliente = function (cliente) {
-            console.log('apertou ');
-            console.log(cliente);
-            $http.put('http://dwddesenvolvimento-api.faromidia.com.br/api/clientes/' + $scope.cliente.id_clientes, {
+            $http.put(CONFIG.dwdApi + '/clientes/' + $scope.cliente.id_clientes, {
                 cliente: cliente
             }).then(function (response) {
                 if (response.success = true) {

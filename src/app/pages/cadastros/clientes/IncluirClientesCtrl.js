@@ -9,11 +9,10 @@
         .controller('IncluirClientesCtrl', IncluirClientesCtrl);
 
     /** @ngInject */
-    function IncluirClientesCtrl($scope, $http) {
+    function IncluirClientesCtrl($scope, $http, CONFIG) {
 
         $scope.salvarCliente = function (cliente) {
-            // 'http://dwddesenvolvimento-api.faromidia.com.br/api/fornecedor'
-            $http.post('http://dwddesenvolvimento-api.faromidia.com.br/api/clientes', {
+            $http.post(CONFIG.dwdApi + '/clientes', {
                 cliente: cliente
             }).then(function (response) {
                 if (response.success = true) {
