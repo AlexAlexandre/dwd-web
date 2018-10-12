@@ -82,7 +82,7 @@
                                     <td>{{tb.tabela_preco.tx_nome_tabela_preco}}</td>
                                     <td>{{tb.tabela_preco.tx_descricao_servico}}</td>
                                     <td>
-                                        <button class="btn btn-danger editable-table-button btn-xs" ng-click="deletarEspacoTB()">
+                                        <button class="btn btn-danger editable-table-button btn-xs" ng-click="deletarEspacoTB(tb.tabela_preco.id_tabela_preco)">
                                             Apagar
                                         </button>
                                     </td>
@@ -106,22 +106,39 @@
                                 </button>
                             </li>
                         </ul>
+
+                        <br>
+                        <div class="row">
+                            <h4>Salas já cadastradas</h4>
+                            <div class="widgets">
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div ba-panel ba-panel-title="Lista de salas" ba-panel-class="with-scroll">
+                                            <div include-with-scope="app/pages/cadastros/espacos/widgets/sala-tabela.html"></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
                     </uib-tab>
-                    <uib-tab heading="Imagens">
-                        <div include-with-scope="app/pages/cadastros/espacos/widgets/fotos-form.html"></div>
-                        <ul class="pager ba-wizard-pager">
-                            <li class="previous">
-                                <button type="button" class=" btn btn-danger" onclick="window.history.go(-1); return false;">
-                                    Cancelar
-                                </button>
-                            </li>
-                            <li class="next">
-                                <button type="button" class="btn btn-primary" ng-click="editarEspaco(espaco)">
-                                    Salvar
-                                </button>
-                            </li>
-                        </ul>
-                    </uib-tab>
+                    <!--<uib-tab heading="Imagens">-->
+                        <!--<div include-with-scope="app/pages/cadastros/espacos/widgets/fotos-form.html"></div>-->
+                        <!--<ul class="pager ba-wizard-pager">-->
+                            <!--<li class="previous">-->
+                                <!--<button type="button" class=" btn btn-danger" onclick="window.history.go(-1); return false;">-->
+                                    <!--Cancelar-->
+                                <!--</button>-->
+                            <!--</li>-->
+                            <!--<li class="next">-->
+                                <!--<button type="button" class="btn btn-primary" ng-click="editarEspaco(espaco)">-->
+                                    <!--Salvar-->
+                                <!--</button>-->
+                            <!--</li>-->
+                        <!--</ul>-->
+                    <!--</uib-tab>-->
 
                 </uib-tabset>
             </div>
