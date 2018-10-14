@@ -19,13 +19,34 @@
             $scope.fornecedores = response.data;
         });
 
-        $scope.salvarTabelaPreco = function (tabelaPreco) {
-            $http.post(CONFIG.dwdApi + '/tabela-preco', {tabelaPreco: tabelaPreco})
-                .then(function (response) {
-                    console.log(response);
+
+        $scope.prod = [
+            //
+        ];
+
+        $scope.adicionarProdutos = function (prod) {
+            $scope.inserted = {
+                nr_valor: prod.nr_valor,
+                nr_percentagem_desconto: prod.nr_percentagem_desconto,
+                tx_descricao_servico: prod.tx_descricao_servico
+            };
+            $scope.prod.push($scope.inserted);
+        };
+
+        $scope.deletarProd = function (index) {
+            $scope.prod.splice(index, 1);
+        };
+
+        $scope.salvarTabelaPreco = function (tabelaPreco, prod) {
+            console.log(tabelaPreco);
+            console.log(prod);
+            $http.post(CONFIG.dwdApi + '/tabela-preco', {
+                tabelaPreco: tabelaPreco,
+                prod: prod
+            }).then(function (response) {
                     if (response.success = true) {
                         swal("Parabéns!", "Tabela de preços criado com sucesso!", "success")
-                            .then(function() {
+                            .then(function () {
                                 window.history.go(-1);
                             });
                     }

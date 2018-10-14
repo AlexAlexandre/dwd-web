@@ -11,6 +11,7 @@
     /** @ngInject */
     function TabelaPrecoCtrl($scope, $filter, editableOptions, editableThemes, $http, CONFIG) {
         $http.get(CONFIG.dwdApi + '/tabela-preco').then(function (response) {
+            console.log(response.data);
             $scope.fornecedores = response.data;
         });
 

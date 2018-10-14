@@ -14,8 +14,6 @@
                             <th class="table-id" st-sort="id" st-sort-default="true">#</th>
                             <th st-sort="firstName">Tabela</th>
                             <th st-sort="lastName">Serviço</th>
-                            <th st-sort="username">Valor</th>
-                            <th st-sort="username">Percentual de Desconto</th>
                             <th st-sort="age">Ações</th>
                         </tr>
                         </thead>
@@ -24,8 +22,6 @@
                             <td class="table-id">{{$index+1}}</td>
                             <td>{{itemTabela.tx_nome_tabela_preco}}</td>
                             <td>{{itemTabela.tipo_servico.tx_tipo_servico}}</td>
-                            <td>{{itemTabela.nr_valor}}</td>
-                            <td>{{itemTabela.nr_percentagem_desconto}}%</td>
                             <td>
                                 <div class="buttons" ng-show="!rowform.$visible">
                                     <button class="btn btn-primary editable-table-button btn-xs"

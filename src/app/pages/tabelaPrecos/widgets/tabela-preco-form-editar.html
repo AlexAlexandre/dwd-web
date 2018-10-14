@@ -34,13 +34,13 @@
     <div class="col-sm-6">
         <div class="form-group">
             <label for="valor">Valor (R$)</label>
-            <input type="number" class="form-control" id="valor" ng-model="prod.nr_valor" required>
+            <input type="number" class="form-control" id="valor" ng-model="prodEditar.nr_valor" required>
         </div>
     </div>
     <div class="col-sm-6">
         <div class="form-group">
             <label for="desconto">Percentual de Desconto (%)</label>
-            <input type="number" class="form-control" id="desconto" ng-model="prod.nr_percentagem_desconto"
+            <input type="number" class="form-control" id="desconto" ng-model="prodEditar.nr_percentagem_desconto"
                    required>
         </div>
     </div>
@@ -50,7 +50,7 @@
         <div class="form-group">
             <label for="descricaoAtividades">Descrição dos Serviços</label>
             <textarea class="form-control" id="descricaoAtividades" name="descricaoAtividades"
-                      ng-model="prod.tx_descricao_servico">
+                      ng-model="prodEditar.tx_descricao_servico">
             </textarea>
         </div>
     </div>
@@ -59,7 +59,7 @@
 <br>
 <div class="row">
     <button class="btn btn-primary" ng-click="adicionarProdutos(prod)">
-        Adicionar
+        Salvar
     </button>
 </div>
 <br>
@@ -73,7 +73,7 @@
                     <th>Descrição do servico</th>
                     <th>Valor</th>
                     <th>Desconto</th>
-                    <!--<th>Ações</th>-->
+                    <th>Ações</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -81,13 +81,16 @@
                     <td>{{item.tx_descricao_servico}}</td>
                     <td>{{item.nr_valor}}</td>
                     <td>{{item.nr_percentagem_desconto}}</td>
-                    <!--<td>-->
-                        <!--<div class="buttons" ng-show="item.nr_valor != null">-->
-                            <!--<button class="btn btn-danger editable-table-button btn-xs" ng-click="deletarProd()">-->
-                                <!--Apagar-->
-                            <!--</button>-->
-                        <!--</div>-->
-                    <!--</td>-->
+                    <td>
+                        <div class="buttons" ng-show="item.nr_valor != null">
+                            <button class="btn btn-primary editable-table-button btn-xs" ng-click="editarProduto(item)">
+                                Editar
+                            </button>
+                            <button class="btn btn-danger editable-table-button btn-xs" ng-click="deletarProduto(item.id_produtos)">
+                                Apagar
+                            </button>
+                        </div>
+                    </td>
                 </tr>
                 </tbody>
             </table>
