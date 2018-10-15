@@ -35,7 +35,11 @@
                     if (willDelete) {
                         $http.delete(CONFIG.dwdApi + '/fornecedor/' + id).then(function (response) {
                             console.log(response);
-                            if(response.data = 1) {
+
+                            if (response.data.data == 'tb') {
+                                swal("Erro!", "Não é possível apagar este fornecedor, pois já existe uma tabela de preço" +
+                                    "vinculada a ele!", "error");
+                            } else if (response.data = 1) {
                                 swal("Parabéns!", "Fornecedor deletado com sucesso!", "success")
                                     .then(function () {
                                         location.reload();
