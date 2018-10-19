@@ -29,6 +29,7 @@
 
                 status_espaco: response.data.status_espaco,
                 tx_nome_condominio: response.data.tx_nome_condominio,
+                tx_nome_espaco: response.data.tx_nome_espaco,
                 qtd_vagas_condominio: response.data.qtd_vagas_condominio,
                 tx_regras_condominio: response.data.tx_regras_condominio,
                 tx_contato_condominio: response.data.tx_contato_condominio,

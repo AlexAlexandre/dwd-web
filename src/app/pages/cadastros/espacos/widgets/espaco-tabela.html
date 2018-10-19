@@ -15,22 +15,22 @@
         <thead>
         <tr class="sortable ">
             <th class="table-id" st-sort="id" st-sort-default="true">#</th>
-            <th st-sort="firstName">Nome do condomínio</th>
-            <th st-sort="lastName">Responsável do Condomínio</th>
-            <th st-sort="username">Nome do Responsável</th>
-            <th st-sort="email">Status</th>
-            <th st-sort="email">Quantidade de Salas</th>
-            <th st-sort="age">Ações</th>
+            <th st-sort="">Status</th>
+            <th st-sort="">Nome do Espaço</th>
+            <th st-sort="">Quantidade de Salas</th>
+            <th st-sort="">Nome do Responsável</th>
+            <th st-sort="">Telefone do Responsável</th>
+            <th st-sort="">Ações</th>
         </tr>
         </thead>
         <tbody>
         <tr ng-repeat="item in espacoTable">
             <td class="table-id">{{$index}}</td>
-            <td>{{item.tx_nome_condominio}}</td>
-            <td>{{item.tx_contato_condominio}}</td>
-            <td>{{item.tx_nome_completo}}</td>
             <td>{{item.status_espaco}}</td>
+            <td>{{item.tx_nome_espaco}}</td>
             <td>{{item.espacos_salas.length}}</td>
+            <td>{{item.tx_nome_completo}}</td>
+            <td>{{item.nr_tel_resp}}</td>
             <td>
                 <button class="btn btn-primary editable-table-button btn-xs" ng-click="editarEspaco(item.id_espacos)">
                     Editar

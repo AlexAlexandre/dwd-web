@@ -13,9 +13,40 @@
     </div>
     <div class="col-sm-6">
         <div class="form-group">
-            <label for="nr_cpf">CPF</label>
+            <label for="nr_cnpj_fornecedor">CNPJ</label>
             <span style="color: red;">*</span>
-            <input type="text" class="form-control" id="nr_cpf" ng-model="fornecedor.nr_cpf" maxlength="11">
+            <input type="text" class="form-control" id="nr_cnpj_fornecedor" ng-model="fornecedor.nr_cnpj_fornecedor" maxlength="15">
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-6">
+        <div class="form-group">
+            <label for="tx_razao_social_fornecedor">Razão Social</label>
+            <span style="color: red;">*</span>
+            <input type="text" class="form-control" id="tx_razao_social_fornecedor" ng-model="fornecedor.tx_razao_social_fornecedor">
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="form-group">
+            <label for="tx_nome_fantasia_fornecedor">Nome Fantasia</label>
+            <span style="color: red;">*</span>
+            <input type="text" class="form-control" id="tx_nome_fantasia_fornecedor" ng-model="fornecedor.tx_nome_fantasia_fornecedor" maxlength="15">
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-6">
+        <div class="form-group">
+            <label for="nr_inscricao_estadual">Inscrição Estadual</label>
+            <input type="text" class="form-control" id="nr_inscricao_estadual" ng-model="fornecedor.nr_inscricao_estadual">
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="form-group">
+            <label for="tx_nome_contato_fornecedor">Nome do Contato</label>
+            <span style="color: red;">*</span>
+            <input type="text" class="form-control" id="tx_nome_contato_fornecedor" ng-model="fornecedor.tx_nome_contato_fornecedor">
         </div>
     </div>
 </div>
@@ -48,15 +79,6 @@
             <label for="tx_cargo">Cargo</label>
             <span style="color: red;">*</span>
             <input type="text" class="form-control" id="tx_cargo" ng-model="fornecedor.tx_cargo">
-        </div>
-    </div>
-</div>
-<div class="row">
-    <div class="col-sm-6">
-        <div class="form-group">
-            <label for="tx_descricao_atividades">Descrição das Atividades</label>
-            <span style="color: red;">*</span>
-            <textarea class="form-control" id="tx_descricao_atividades" ng-model="fornecedor.tx_descricao_atividades"></textarea>
         </div>
     </div>
 </div>

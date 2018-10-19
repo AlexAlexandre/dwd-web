@@ -12,15 +12,19 @@
     function EditarFornecedoresCtrl($scope, $http, $stateParams, CONFIG) {
 
         $http.get(CONFIG.dwdApi + '/fornecedor/' + $stateParams.id).then(function (response) {
+            console.log(response.data);
             $scope.fornecedor = {
                 id_fornecedores: response.data.id_fornecedores,
                 tx_nome_fornecedor: response.data.tx_nome_fornecedor,
-                nr_cpf: response.data.nr_cpf,
+                tx_nome_fantasia_fornecedor: response.data.tx_nome_fantasia_fornecedor,
+                nr_cnpj_fornecedor: response.data.nr_cnpj_fornecedor,
+                tx_razao_social_fornecedor: response.data.tx_razao_social_fornecedor,
+                nr_inscricao_estadual: response.data.nr_inscricao_estadual,
+                tx_nome_contato_fornecedor: response.data.tx_nome_contato_fornecedor,
                 tx_email_comercial: response.data.tx_email_comercial,
                 nr_telefone_direto: response.data.nr_telefone_direto,
                 nr_telefone_celular: response.data.nr_telefone_celular,
                 tx_cargo: response.data.tx_cargo,
-                tx_descricao_atividades: response.data.tx_descricao_atividades
             };
 
             $scope.enderecoCompleto = {
