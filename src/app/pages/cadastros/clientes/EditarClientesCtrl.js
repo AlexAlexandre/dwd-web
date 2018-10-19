@@ -19,8 +19,11 @@
                 nr_inscricao_municipal: response.data.nr_inscricao_municipal,
                 tx_nome_fantasia: response.data.tx_nome_fantasia,
                 tx_nome_contato: response.data.tx_nome_contato,
+                tx_nome_contato_sec: response.data.tx_nome_contato_sec,
                 tx_email_comercial: response.data.tx_email_comercial,
-                nr_telefone: response.data.nr_telefone
+                tx_email_comercial_sec: response.data.tx_email_comercial_sec,
+                nr_telefone: response.data.nr_telefone,
+                nr_telefone_sec: response.data.nr_telefone_sec
             };
 
         });
