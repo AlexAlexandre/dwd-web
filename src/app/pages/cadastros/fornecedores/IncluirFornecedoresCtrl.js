@@ -10,8 +10,6 @@
 
     /** @ngInject */
     function IncluirFornecedoresCtrl($scope, $http, CONFIG) {
-//TODO - implementar lógica, para digitar primeiro o CEP, e já trazer selecionado a UF e a CIDADE
-
 
         $scope.enderecoCompleto = {
             sg_uf: null,

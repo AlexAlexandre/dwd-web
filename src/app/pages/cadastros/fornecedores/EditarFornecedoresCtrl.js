@@ -35,7 +35,7 @@
             };
 
             //TODO -> refatorar isso aqui também, ta se repetindo.
-            $http.get(CONFIG.dwdApi + '/api/uf').then(function (response) {
+            $http.get(CONFIG.dwdApi + '/uf').then(function (response) {
                 // $scope.enderecoCompleto.uf = response.data;
                 $scope.uf = response.data;
             });

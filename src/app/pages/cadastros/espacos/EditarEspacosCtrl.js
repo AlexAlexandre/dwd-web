@@ -54,14 +54,43 @@
 
             };
 
+            $scope.enderecoCompleto = {
+                id_endereco: response.data.endereco.id_endereco,
+                tx_cep: response.data.endereco.tx_cep,
+                sg_uf: response.data.endereco.sg_uf,
+                tx_localidade: response.data.endereco.tx_localidade,
+                tx_bairro: response.data.endereco.tx_bairro,
+                tx_logradouro: response.data.endereco.tx_logradouro,
+                tx_complemento: response.data.endereco.tx_complemento,
+                nr_numero: response.data.endereco.nr_numero
+            };
+
             $scope.tabelaPrecoEspaco = response.data.espacos_tabela;
+
+            //TODO -> refatorar isso aqui também, ta se repetindo.
+            $http.get(CONFIG.dwdApi + '/uf').then(function (response) {
+                // $scope.enderecoCompleto.uf = response.data;
+                $scope.uf = response.data;
+            });
 
         });
 
-        $scope.editarEspaco = function (espaco, tabelaPreco) {
+        //TODO -> essa função ta duplicada, refatora-la futuramente.
+        $scope.buscarEndereco = function (cep) {
+            $http.get('https://viacep.com.br/ws/' + cep + '/json/').then(function (response) {
+                $scope.enderecoCompleto.sg_uf = response.data.uf;
+                $scope.enderecoCompleto.tx_localidade = response.data.localidade;
+                $scope.enderecoCompleto.tx_bairro = response.data.bairro;
+                $scope.enderecoCompleto.tx_logradouro = response.data.logradouro;
+                $scope.enderecoCompleto.tx_complemento = response.data.complemento;
+            });
+        };
+
+        $scope.editarEspaco = function (espaco, tabelaPreco, enderecoCompleto) {
             $http.put(CONFIG.dwdApi + '/espacos/' + espaco.id_espacos, {
                 espaco: espaco,
-                tabelaPreco: tabelaPreco ? tabelaPreco : null
+                tabelaPreco: tabelaPreco ? tabelaPreco : null,
+                enderecoCompleto: enderecoCompleto
             }).then(function (response) {
                 if (response.success = true) {
                     swal("Parabéns!", "Espaço editado com sucesso!", "success")
