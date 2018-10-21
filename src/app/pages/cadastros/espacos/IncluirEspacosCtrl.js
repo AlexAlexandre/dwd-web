@@ -32,22 +32,28 @@
         };
 
         $scope.salvarEspaco = function (espaco, enderecoCompleto) {
-            // console.log(espaco.picFile);
-            //
-            // espaco.picFile.upload = Upload.upload({
-            //     url: CONFIG.dwdApi + '/espacos',
-            //     data: {file: espaco.picFile},
-            // });
-            //
-            // espaco.picFile.upload.then(function (response) {
-            //     console.log(response.data);
-            // }, function (response) {
-            //     if (response.status > 0)
-            //         $scope.errorMsg = response.status + ': ' + response.data;
-            // }, function (evt) {
-            //     // Math.min is to fix IE which reports 200% sometimes
-            //     // file.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
-            // });
+            console.log(espaco.picFile);
+
+            Upload.upload({
+                url: CONFIG.dwdApi + '/espacos',
+                data: {
+                    file: espaco.picFile,
+                    espaco: espaco,
+                    enderecoCompleto: enderecoCompleto
+                }
+            }).then(function (response) {
+                if (response.success = true) {
+                    swal("Parabéns!", "Espaço criado com sucesso!", "success")
+                        .then(function () {
+                            window.history.go(-1);
+                        });
+                }
+            }, function (resp) {
+                console.log('Error status: ' + resp.status);
+            }, function (evt) {
+                var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
+                console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
+            });
 
 
             // espaco.picFile.upload = Upload.upload({
@@ -63,17 +69,17 @@
             //     })
             // })
 
-            $http.post(CONFIG.dwdApi + '/espacos', {
-                espaco: espaco,
-                enderecoCompleto: enderecoCompleto
-            }).then(function (response) {
-                if (response.success = true) {
-                    swal("Parabéns!", "Espaço criado com sucesso!", "success")
-                        .then(function () {
-                            window.history.go(-1);
-                        });
-                }
-            });
+            // $http.post(CONFIG.dwdApi + '/espacos', {
+            //     espaco: espaco,
+            //     enderecoCompleto: enderecoCompleto
+            // }).then(function (response) {
+            //     if (response.success = true) {
+            //         swal("Parabéns!", "Espaço criado com sucesso!", "success")
+            //             .then(function () {
+            //                 window.history.go(-1);
+            //             });
+            //     }
+            // });
         };
 
     }
