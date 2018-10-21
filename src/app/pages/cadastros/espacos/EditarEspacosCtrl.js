@@ -9,13 +9,14 @@
         .controller('EditarEspacosCtrl', EditarEspacosCtrl);
 
     /** @ngInject */
-    function EditarEspacosCtrl($scope, $http, $stateParams, CONFIG) {
+    function EditarEspacosCtrl($scope, $http, $stateParams, CONFIG, Upload) {
 
         $http.get(CONFIG.dwdApi + '/listar-tabela-preco').then(function (response) {
             $scope.tabelaPreco = response.data;
         });
 
         $http.get(CONFIG.dwdApi + '/espacos/' + $stateParams.id).then(function (response) {
+            console.log(response.data);
             $scope.espaco = {
                 id_espacos: response.data.id_espacos,
                 tx_razao_social: response.data.tx_razao_social,
@@ -55,16 +56,29 @@
 
             };
 
-            $scope.enderecoCompleto = {
-                id_endereco: response.data.endereco.id_endereco,
-                tx_cep: response.data.endereco.tx_cep,
-                sg_uf: response.data.endereco.sg_uf,
-                tx_localidade: response.data.endereco.tx_localidade,
-                tx_bairro: response.data.endereco.tx_bairro,
-                tx_logradouro: response.data.endereco.tx_logradouro,
-                tx_complemento: response.data.endereco.tx_complemento,
-                nr_numero: response.data.endereco.nr_numero
-            };
+            if (response.data.endereco) {
+                $scope.enderecoCompleto = {
+                    id_endereco: response.data.endereco.id_endereco,
+                    tx_cep: response.data.endereco.tx_cep,
+                    sg_uf: response.data.endereco.sg_uf,
+                    tx_localidade: response.data.endereco.tx_localidade,
+                    tx_bairro: response.data.endereco.tx_bairro,
+                    tx_logradouro: response.data.endereco.tx_logradouro,
+                    tx_complemento: response.data.endereco.tx_complemento,
+                    nr_numero: response.data.endereco.nr_numero
+                };
+            } else {
+                $scope.enderecoCompleto = {
+                    id_endereco: null,
+                    tx_cep: null,
+                    sg_uf: null,
+                    tx_localidade: null,
+                    tx_bairro: null,
+                    tx_logradouro: null,
+                    tx_complemento: null,
+                    nr_numero: null
+                };
+            }
 
             $scope.tabelaPrecoEspaco = response.data.espacos_tabela;
 
@@ -88,17 +102,54 @@
         };
 
         $scope.editarEspaco = function (espaco, tabelaPreco, enderecoCompleto) {
-            $http.put(CONFIG.dwdApi + '/espacos/' + espaco.id_espacos, {
-                espaco: espaco,
-                tabelaPreco: tabelaPreco ? tabelaPreco : null,
-                enderecoCompleto: enderecoCompleto
+            console.log(espaco.sala.foto);
+            Upload.upload({
+                url: CONFIG.dwdApi + '/espacos/' + espaco.id_espacos,
+                data: {
+                    _method: 'put',
+                    espaco: espaco,
+                    tabelaPreco: tabelaPreco ? tabelaPreco : null,
+                    enderecoCompleto: enderecoCompleto
+                }
             }).then(function (response) {
+                console.log(response);
                 if (response.success = true) {
-                    swal("Parabéns!", "Espaço editado com sucesso!", "success")
+                    swal("Parabéns!", "Espaço criado com sucesso!", "success")
                         .then(function () {
                             window.history.go(-1);
                         });
                 }
+            }, function (resp) {
+                swal("Erro!", "Algo deu errado, por favor tente novamente!", "error")
+                    .then(function () {
+                        window.history.go(-1);
+                    });
+            });
+        };
+
+
+        $scope.editarEspacoDocumento = function (doc, id) {
+            console.log(doc);
+            console.log(id);
+            Upload.upload({
+                url: CONFIG.dwdApi + '/espacos/documentos/' + id,
+                data: {
+                    id: id,
+                    documentos: doc,
+                }
+            }).then(function (response) {
+                if (response.success = true) {
+                    swal("Parabéns!", "Espaço criado com sucesso!", "success")
+                        .then(function () {
+                            window.history.go(-1);
+                        });
+                }
+            }, function (resp) {
+                console.log('Error status: ' + resp.status);
+                swal("Erro!", "Algo deu errado, por favor tente novamente!", "error")
+                    .then(function () {
+                        window.history.go(-1);
+                    });
             });
         };
 

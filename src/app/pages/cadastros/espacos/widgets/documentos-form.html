@@ -1,0 +1,40 @@
+<div class="row">
+    <div class="col-sm-6">
+        <div class="form-group">
+            <label>Regras do Condomínio</label>
+            <span style="color: red;">*</span>
+            <input type="file" ngf-select ng-model="espaco.documento.regras_condominio" name="file"
+                   accept="pdf/*" ngf-max-size="2MB" required
+                   ngf-model-invalid="errorFile">
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="form-group">
+            <label>Seguro</label>
+            <span style="color: red;">*</span>
+            <input type="file" ngf-select ng-model="espaco.documento.seguro" name="file"
+                   accept="pdf/*" ngf-max-size="2MB" required
+                   ngf-model-invalid="errorFile">
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-6">
+        <div class="form-group">
+            <label>IPTU</label>
+            <span style="color: red;">*</span>
+            <input type="file" ngf-select ng-model="espaco.documento.iptu" name="file"
+                   accept="pdf/*" ngf-max-size="2MB" required
+                   ngf-model-invalid="errorFile">
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="form-group">
+            <label>Licença de Funcionamento</label>
+            <span style="color: red;">*</span>
+            <input type="file" ngf-select ng-model="espaco.documento.licenca_funcionamento" name="file"
+                   accept="pdf/*" ngf-max-size="2MB" required
+                   ngf-model-invalid="errorFile">
+        </div>
+    </div>
+</div>

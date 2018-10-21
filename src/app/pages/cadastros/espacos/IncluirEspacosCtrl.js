@@ -5,7 +5,7 @@
         .controller('IncluirEspacosCtrl', IncluirEspacosCtrl);
 
     /** @ngInject */
-    function IncluirEspacosCtrl($scope, $http, CONFIG, Upload) {
+    function IncluirEspacosCtrl($scope, $http, CONFIG) {
 
         //TODO remover toda essa parte de endereço para uma service
         //TODO CÓDIGO DUPLICADO
@@ -32,15 +32,9 @@
         };
 
         $scope.salvarEspaco = function (espaco, enderecoCompleto) {
-            console.log(espaco.picFile);
-
-            Upload.upload({
-                url: CONFIG.dwdApi + '/espacos',
-                data: {
-                    file: espaco.picFile,
-                    espaco: espaco,
-                    enderecoCompleto: enderecoCompleto
-                }
+            $http.post(CONFIG.dwdApi + '/espacos', {
+                espaco: espaco,
+                enderecoCompleto: enderecoCompleto
             }).then(function (response) {
                 if (response.success = true) {
                     swal("Parabéns!", "Espaço criado com sucesso!", "success")
@@ -48,38 +42,7 @@
                             window.history.go(-1);
                         });
                 }
-            }, function (resp) {
-                console.log('Error status: ' + resp.status);
-            }, function (evt) {
-                var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
-                console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
             });
-
-
-            // espaco.picFile.upload = Upload.upload({
-            //     url: CONFIG.dwdApi + '/espacos',
-            //     data:{
-            //         file: espaco.picFile
-            //     }
-            // });
-            //
-            // espaco.picFile.upload.then(function (response) {
-            //     $timeout(function () {
-            //         response.data;
-            //     })
-            // })
-
-            // $http.post(CONFIG.dwdApi + '/espacos', {
-            //     espaco: espaco,
-            //     enderecoCompleto: enderecoCompleto
-            // }).then(function (response) {
-            //     if (response.success = true) {
-            //         swal("Parabéns!", "Espaço criado com sucesso!", "success")
-            //             .then(function () {
-            //                 window.history.go(-1);
-            //             });
-            //     }
-            // });
         };
 
     }

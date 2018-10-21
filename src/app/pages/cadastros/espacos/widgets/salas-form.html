@@ -1,9 +1,17 @@
 <div class="row">
-    <div class="col-sm-12">
+    <div class="col-sm-6">
         <div class="form-group">
             <label for="tx_nome_salas">Nome da Sala</label>
             <span style="color: red;">*</span>
             <input type="text" class="form-control" id="tx_nome_salas" ng-model="espaco.sala.tx_nome_salas">
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="form-group">
+            <label>Enviar Foto</label>
+            <input type="file" ngf-select ng-model="espaco.sala.foto" name="file"
+                   accept="image/*" ngf-max-size="2MB" required
+                   ngf-model-invalid="errorFile">
         </div>
     </div>
 </div>
