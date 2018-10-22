@@ -1,1 +1,30 @@
-<div id='calendar' class="blurCalendar"></div>
+<div class="widgets">
+    <div class="row">
+        <div class="col-md-3">
+            <div ba-panel ba-panel-title="Espaços" ba-panel-class="with-scroll">
+                <div class="form-group">
+                    <label for="tipoServico">Selecione o Espaço </label>
+                    <select class="form-control" title="Selecione o Estado" id="tipoServico" name="tipoServico"
+                            ng-repeat="item in espacoSelect" ng-model="espacoSelect.id_espacos"
+                            ng-change="buscarSalas(espacoSelect.id_espacos)">
+                        <option value="{{item.id_espacos}}">{{item.tx_nome_espaco}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <div ba-panel ba-panel-class="with-scroll" ng-repeat="sala in espacoSala">
+                    <h4>{{sala.salas.tx_nome_salas}}</h4>
+                    <div class="img-wrapper"><img ng-src="http://127.0.0.1:8000/storage/{{sala.salas.tx_img_sala}}" alt=""/>
+                    </div>
+                    <ul>
+                        <li>Altura do Pé Direito: {{sala.salas.nr_altura_pe_direito_salas}}</li>
+                        <li>Metragem: {{sala.salas.nr_metragem_salas}}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div id='calendar' class="blurCalendar"></div>
+        </div>
+    </div>
+</div>
