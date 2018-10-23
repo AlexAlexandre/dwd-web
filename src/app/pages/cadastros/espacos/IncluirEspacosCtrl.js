@@ -2,7 +2,9 @@
     'use strict';
 
     angular.module('BlurAdmin.pages.form')
-        .controller('IncluirEspacosCtrl', IncluirEspacosCtrl);
+        .controller('IncluirEspacosCtrl', IncluirEspacosCtrl, ['$scope', function($scope) {
+            $scope.validarEmail = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+        }]);
 
     /** @ngInject */
     function IncluirEspacosCtrl($scope, $http, CONFIG) {

@@ -32,11 +32,12 @@
 </div>
 <div class="row">
     <div class="col-sm-6">
-        <div class="form-group">
+        <form name="emailComercialResp" class="form-group" ng-controller="IncluirEspacosCtrl">
             <label for="tx_email_comercial_resp">E-mail</label>
             <span style="color: red;">*</span>
-            <input type="tel" class="form-control" id="tx_email_comercial_resp" ng-model="espaco.tx_email_comercial_resp">
-        </div>
+            <input type="email" class="form-control" name="validarEmail" id="tx_email_comercial_resp" ng-model="espaco.tx_email_comercial_resp" required>
+            <span style="color: red" class="error" ng-show="emailComercialResp.validarEmail.$error.email">E-mail <strong>inválido</strong></span>
+        </form>
     </div>
     <div class="col-sm-6">
         <div class="form-group">

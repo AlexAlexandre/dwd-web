@@ -48,11 +48,12 @@
 </div>
 <div class="row">
     <div class="col-sm-6">
-        <div class="form-group">
+        <form name="emailComercial" class="form-group" ng-controller="IncluirEspacosCtrl">
             <label for="tx_email_comercial">E-mail Comercial</label>
             <span style="color: red;">*</span>
-            <input type="text" class="form-control" id="tx_email_comercial" ng-model="espaco.tx_email_comercial">
-        </div>
+            <input type="email" class="form-control" name="validarEmail" id="tx_email_comercial" ng-model="espaco.tx_email_comercial" required>
+            <span style="color: red" class="error" ng-show="emailComercial.validarEmail.$error.email">E-mail <strong>inválido</strong></span>
+        </form>
     </div>
     <div class="col-sm-6">
         <div class="form-group">

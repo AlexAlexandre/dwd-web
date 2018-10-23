@@ -14,7 +14,7 @@
         <div class="form-group">
             <label for="nr_cnpj_cliente">CNPJ</label>
             <span style="color: red;">*</span>
-            <input type="text" class="form-control" id="nr_cnpj_cliente" ng-model="cliente.nr_cnpj_cliente" maxlength="15">
+            <input type="text" class="form-control" id="nr_cnpj_cliente" ng-model="cliente.nr_cnpj_cliente" ui-mask="99.999.999/9999-99" />
         </div>
     </div>
 </div>
@@ -52,11 +52,12 @@
 </div>
 <div class="row">
     <div class="col-sm-6">
-        <div class="form-group">
+        <form name="emailForm" class="form-group" ng-controller="IncluirClientesCtrl">
             <label for="tx_email_comercial">E-mail Comercial</label>
             <span style="color: red;">*</span>
-            <input type="text" class="form-control" id="tx_email_comercial" ng-model="cliente.tx_email_comercial">
-        </div>
+            <input type="email" class="form-control" name="validarEmail" id="tx_email_comercial" ng-model="cliente.tx_email_comercial" required>
+            <span style="color: red" class="error" ng-show="emailForm.validarEmail.$error.email">E-mail <strong>inválido</strong></span>
+        </form>
     </div>
     <div class="col-sm-6">
         <div class="form-group">
@@ -74,10 +75,15 @@
             <input type="text" class="form-control" id="tx_nome_contato_sec" ng-model="cliente.tx_nome_contato_sec">
         </div>
     </div>
+
     <div class="col-sm-6">
         <div class="form-group">
-            <label for="tx_email_comercial_sec">E-mail Comercial Secundário</label>
-            <input type="text" class="form-control" id="tx_email_comercial_sec" ng-model="cliente.tx_email_comercial_sec">
+            <form name="emailSecundario" class="form-group" ng-controller="IncluirClientesCtrl">
+                <label for="tx_email_comercial_sec">E-mail Comercial Secundário</label>
+                <span style="color: red;">*</span>
+                <input type="email" class="form-control" name="validarEmail" id="tx_email_comercial_sec" ng-model="cliente.tx_email_comercial_sec" required>
+                <span style="color: red" class="error" ng-show="emailSecundario.validarEmail.$error.email">E-mail <strong>inválido</strong></span>
+            </form>
         </div>
     </div>
 </div>

@@ -6,7 +6,10 @@
     'use strict';
 
     angular.module('BlurAdmin.pages.cadastros.clientes')
-        .controller('IncluirClientesCtrl', IncluirClientesCtrl);
+        .controller('IncluirClientesCtrl', IncluirClientesCtrl, ['$scope', function($scope) {
+            $scope.validarEmail = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+        }]);
+
 
     /** @ngInject */
     function IncluirClientesCtrl($scope, $http, CONFIG) {
